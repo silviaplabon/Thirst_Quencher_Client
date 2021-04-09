@@ -1,0 +1,11 @@
+.cardBody{
+    background-color:#EC0444;
+}
+.liDrink{
+    list-style-type: none;
+}
+.ulDrink{
+    margin:0px;
+    padding:10px 0;
+    font-size:20px;
+}
