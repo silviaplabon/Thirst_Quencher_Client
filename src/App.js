@@ -17,6 +17,7 @@ import Admin from './components/Admin/Admin';
 import Header from './components/Header/Header';
 import HomeDrinkDetails from './components/HomeDrinkDetails/HomeDrinkDetails';
 import HomeIngredientDetails from './components/HomeIngredientDetails/HomeIngredientDetails';
+import AddProducts from './components/AddProducts/AddProducts';
 export const  UserContext=createContext();
 function App() {
   const [loggedInUser,setloggedInUser]=useState({});
@@ -35,7 +36,7 @@ function App() {
             <Drinks></Drinks>
           </Route>
           <Route exact path="/admin">
-            <Admin/>
+            <AddProducts/>
           </Route>
           <Route exact path="/drinksByName/:name">
             <HomeDrinkDetails/>
