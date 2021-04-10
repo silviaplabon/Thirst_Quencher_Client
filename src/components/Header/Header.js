@@ -24,14 +24,14 @@ const Header = () => {
                     <div className="navbar-nav">
                         <input className="form-control me-3 mt-2" onChange={handleChange} type="search" placeholder="Search" aria-label="Search" />
                         <Link to="/" className="nav-link">Home</Link>
-                        <Link to="/orders" className=" nav-link">Orders</Link>
-                        <Link to="/admin" className="nav-link">Admin</Link>
+                        <Link to="/auth/orders" className=" nav-link">Orders</Link>
+                        <Link to="/auth/admin" className="nav-link">Admin</Link>
                         <Link to="/" className="nav-link">Deals</Link>
                         {loggedInUser.email && (loggedInUser.displayName ? <button className="btn buttonColor me-2  buttonStyleHeader">{loggedInUser.displayName}</button>
                             : <button className="btn  me-2  buttonStyle buttonColor">{loggedInUser.email}</button>)}
 
                         {loggedInUser.email ? <button onClick={() => setLoggedInUser({})} className="btn buttonColor logStyle  buttonStyleHeader ms-1">Logout</button> :
-                            <Link to="/login" className="btn  ms-1 buttonStyleHeader buttonColor">Login</Link>
+                            <Link to="/auth/login" className="btn  ms-1 buttonStyleHeader buttonColor">Login</Link>
                         }
 
                     </div>

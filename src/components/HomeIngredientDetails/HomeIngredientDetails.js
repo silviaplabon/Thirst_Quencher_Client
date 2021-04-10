@@ -38,19 +38,40 @@ const HomeIngredientDetails = () => {
         <div className="container">
 
             <div className="row">
+            <div className="col-md-12 d-flex justify-content-center row mx-1">
+                <div className="card mb-3">
+                    <div className="row g-0">
+                        <div className="col-md-3 d-flex align-items-center justify-content-center">
+                            <img src={`https://www.thecocktaildb.com/images/ingredients/${strIngredient}-Medium.png`} className="align-items-end imgSizeIngredient" />
+                        </div>
+                        <div className="col-md-9">
+                            <div className="card-body">
+                                <h5 className="card-title fw-bold text-center">{strIngredient}</h5>
+                                <p className="card-text text-justify">{strDescription}</p>
+                                <p className="card-text fw-bold text-center">{strType}
+                                    {
+                                        strType == "yes" ?<small class="text-muted">: Alchoholic</small>:<small class="text-muted">: Not-Alchoholic</small>
+                                    }
+                                  </p>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+{/*                 
                 <div className="col-md-12 d-flex justify-content-center row mx-1">
-                        <img src={`https://www.thecocktaildb.com/images/ingredients/${strIngredient}.png`} className="w-50 h-50 " />
+                    <div className="col-md-12">
+                    </div>
                     <div className="col-md-12 text-center mt-5">
                         <h5 className="card-title mt-5 mb-2 fw-bold mt-5">Descriptions</h5>
                         <p className="card-text text-justify mt-5">{strDescription}</p>
-                        <h6 className="card-title mt-4 mb-1 fw-bold mt-5">{strType}</h6>
-                        {
-                            strType == "yes" ? <h6 className="card-title mt-4 mb-2 fw-bold">Alchoholic</h6> : <h6 className="card-title mt-4 mb-2 fw-bold">Not-Alchoholic</h6>
-                        }
+                        <h6 className="card-title mt-4 mb-1 fw-bold mt-5"></h6>
+
                     </div>
-                </div>
+                </div> */}
                 <div className="col-md-12">
-                    <div className="row  row-cols-xs-1 row-cols-sm-3  row-cols-md-5  mt-5">
+                    <div className="row   row-cols-sm-2  row-cols-md-3 row-cols-lg-5  mt-5">
                         {
                             drinks.map(drink => <DrinkShowById drink={drink} state={true}></DrinkShowById>)
                         }

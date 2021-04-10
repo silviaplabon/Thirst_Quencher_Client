@@ -20,7 +20,7 @@ const HomeDetailDrink = () => {
         }
         fetch(url)
             .then(res => res.json())
-            .then(data => { setDetail(data.drinks[0])})
+            .then(data => { setDetail(data.drinks[0]) })
     }, [])
 
     const { strDrink, strInstructions, strDrinkThumb } = detail;
@@ -44,7 +44,7 @@ const HomeDetailDrink = () => {
                 ingredientContainer.appendChild(ingredient);
             }
         }
-    }, [])
+    }, [detail])
 
     return (
         <div className=" detaildrinkstyle container">
@@ -64,10 +64,13 @@ const HomeDetailDrink = () => {
                     <h6 className="card-title mt-4 mb-2">Glass</h6>
                     <p className="card-text">Serve-{detail.strGlass}</p>
                 </div>
-                <div className="">
-                    <p className="card-text mt-4">Recipe</p>
-                    <a href={detail.strVideo} target="_blank"><FontAwesomeIcon className="iconSize" icon={faYoutube} style={{ fontSize: '60px', color: '#E62117' }} /></a>
-                </div>
+                {
+                    detail.strVideo &&
+                    <div className="">
+                        <p className="card-text mt-4">Recipe</p>
+                        <a href={detail.strVideo} target="_blank"><FontAwesomeIcon className="iconSize" icon={faYoutube} style={{ fontSize: '60px', color: '#E62117' }} /></a>
+                    </div>
+                }
             </div>
         </div>
     );
