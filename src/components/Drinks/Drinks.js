@@ -20,7 +20,7 @@ const Drinks = () => {
     console.log(drinks)
     return (
         <div className="container">
-            <h5 className="text-center mt-4">Browse Cocktails</h5>
+            <h5 className="text-center mt-4">Browse Search Result</h5>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-4 mt-3">
             {
                 drinks?.map(drink => <DrinkShowById drink={drink} ></DrinkShowById>)

@@ -20,6 +20,10 @@ import HomeIngredientDetails from './components/HomeIngredientDetails/HomeIngred
 import AddProducts from './components/AddProducts/AddProducts';
 import Filter from  './components/Filter/Filter'
 import Alcoholic from './components/Alcoholic/Alcoholic';
+import GlassData from './components/GlassData/GlassData';
+import CategoryData from './components/CategoryData/CategoryData';
+import Glass from './components/Glass/Glass';
+import Category from './components/Category/Category';
 export const UserContext = createContext();
 function App() {
   const [loggedInUser, setloggedInUser] = useState({});
@@ -53,10 +57,16 @@ function App() {
             <Filter></Filter>
           </PrivateRoute>
           <PrivateRoute exact path="/auth/filter/glass">
-            <Filter></Filter>
+            <Glass></Glass>
           </PrivateRoute>
           <PrivateRoute exact path="/auth/filter/category">
-            <Filter></Filter>
+             <Category></Category>
+          </PrivateRoute>
+          <PrivateRoute exact path="/filter/glass/:name">
+            <GlassData></GlassData>
+          </PrivateRoute>
+          <PrivateRoute exact path="/filter/category/:name">
+            <CategoryData></CategoryData>
           </PrivateRoute>
 
 

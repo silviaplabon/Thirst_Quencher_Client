@@ -44,7 +44,7 @@ const Filter = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col" onClick={()=>handleGlass()}>
+                <div className="col" onClick={()=>handleCategory()}>
                     <div className="card h-100">
                     <div className="card-body cardBody h-75">
                         <img src={categoryimg} className="card-img-top h-100 w-100" alt="..." />
@@ -54,7 +54,7 @@ const Filter = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col" onClick={()=>handleCategory()}>
+                <div className="col" onClick={()=>handleGlass()}>
                     <div className="card h-100">
                     <div className="card-body cardBody h-75">
                         <img src={glassimg} className="card-img-top h-100 w-100" alt="..." />

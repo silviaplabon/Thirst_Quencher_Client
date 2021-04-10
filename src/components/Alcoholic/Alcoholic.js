@@ -10,7 +10,7 @@ const Alcoholic = () => {
         console.log(url)
         fetch(url)
             .then(res => res.json())
-            .then(data => {setDrinks(data.drinks); console.log(data);})
+            .then(data => {setDrinks(data.drinks);})
     }, [])
     return (
         <div className="container">

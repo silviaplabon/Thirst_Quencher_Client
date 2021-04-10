@@ -29,7 +29,7 @@ const Header = () => {
                         <Link to="/auth/setup/admin" className="nav-link">Admin</Link>
 
                         {loggedInUser.email ? <button onClick={() => setLoggedInUser({})} className="btn buttonColor logStyle  buttonStyleHeader  fw-bold " style={{color:'white'}}>Logout</button> :
-                            <Link to="/auth/login" className="btn  ms-1 buttonStyleHeader buttonColor fw-bold">Login</Link>
+                            <Link to="/auth/login" className="btn   buttonStyleHeader buttonColor fw-bold">Login</Link>
                         }
                     </div>
                 </div>

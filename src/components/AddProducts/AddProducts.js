@@ -48,7 +48,7 @@ const AddProducts = () => {
 
 
     return (
-        <div className="">
+        <div className="container">
             <form onSubmit={()=>handleSubmit(onSubmit)} className="bg-light p-5 formStyle">
                 <div className="row d-flex">
                     <div className="col-md-12">
@@ -72,7 +72,7 @@ const AddProducts = () => {
                         <label for="productName">Product Name</label>
                         <input name="name" id="productName" className="form-control " defaultValue="" ref={register} />
                     </div>
-                    <div className="col-md-5 ms-2 mt-2">
+                    <div className="col-md-5  mt-2 ms-0">
                         <label for="productImg" className="">Add Photo</label>
                         <input name="image" type="file" id="productImg" className="form-control " onChange={handleImageUpload} ref={register({ required: true })} />
                     </div>
