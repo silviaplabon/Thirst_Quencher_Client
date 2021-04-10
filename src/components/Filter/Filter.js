@@ -4,11 +4,24 @@ import glassimg from '../../images/glass.jfif';
 import alcoholicimg from '../../images/alcoholic.jpg';
 import nonalcoholicimg from '../../images/nonalcoholic.jpg';
 import categoryimg from '../../images/category.jfif';
-const Category = () => {
+const Filter = () => {
+    const handleAlcoholic=()=>{
+        history.push('/filter/alcoholic')
+    }
+    const handleNonAlcoholic=()=>{
+        history.push('/filter/nonalcoholic')
+    }
+    const handleGlass=()=>{
+        history.push('/filter/glass')
+    }
+    const handleCategory=()=>{
+        history.push('/filter/category')
+    }
+
     return (
         <div className="container">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  g-4 mx-5 mt-5">
-                <div className="col">
+                <div className="col" onClick={()=>handleAlcoholic()}>
                     <div className="card h-100">   
                        <div className="card-body cardBody h-75">
                         <img src={alcoholicimg} className="card-img-top h-100 w-100" alt="..." />
@@ -16,7 +29,6 @@ const Category = () => {
                         <div className="card-footer">
                             <h5 className="card-title text-center fw-bold">Alcoholic</h5>
                         </div>
-
                     </div>
                 </div>
                 <div className="col">
@@ -54,4 +66,4 @@ const Category = () => {
     );
 };
 
-export default Category;
+export default Filter;
