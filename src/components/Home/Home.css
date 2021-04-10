@@ -1,0 +1,13 @@
+.containerColor{
+    background-color:#FF2400;
+    margin:0!important;
+    padding:0!important;
+}
+.bgHomeStyle,.cardBodyStyle{
+    background-color: #2d524a!important;
+    color:white!important;
+}
+.spinnerColor{
+    color: #2d524a!important;
+    font-size:35px!important;
+}

@@ -11,6 +11,7 @@ const HomeDetailDrink = () => {
     const history = useHistory();
     const [detail, setDetail] = useState({})
 
+
     useEffect(() => {
         let url;
         let url1 = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`;
@@ -20,10 +21,11 @@ const HomeDetailDrink = () => {
         }
         fetch(url)
             .then(res => res.json())
-            .then(data => { setDetail(data.drinks[0]) })
+            .then(data => { setDetail(data.drinks[0]); })
     }, [])
 
     const { strDrink, strInstructions, strDrinkThumb } = detail;
+    console.log(detail)
 
     useEffect(() => {
         const ingredientContainer = document.getElementById('ingredientContainer');
@@ -50,7 +52,8 @@ const HomeDetailDrink = () => {
     }, [detail])
 
     return (
-        <div className=" detaildrinkstyle container">
+        <div className=" detaildrinkstyle container mt-5">
+           
             <div className=" row m-auto mx-5 px-5 detaildrinkstyle">
                 <div className=" mt-5 col-md-5 cardHomeDrink card h-100">
                     <img src={strDrinkThumb} class="card-img-top h-100 " alt="..."></img>
@@ -58,15 +61,21 @@ const HomeDetailDrink = () => {
                 <div className="col-md-7 row row-col-xs-1 row-cols-md-3 row-cols-sm-2 " id="ingredientContainer">
                 </div>
             </div>
-            <div className="w-75 m-auto text-center">
+
+            <div className="w-75 m-auto text-center d-flex-column justify-content-center align-items-center">
                 <div className="">
-                    <h6 className="card-title mt-5 mb-2">Instructions</h6>
+                    <h6 className="card-title mt-5 mb-2 fw-bold">Instructions</h6>
                     <p className="card-text">{detail.strInstructions}</p>
                 </div>
                 <div className="">
-                    <h6 className="card-title mt-4 mb-2">Glass</h6>
+                    <h6 className="card-title mt-4 mb-2 fw-bold">Glass</h6>
                     <p className="card-text">Serve-{detail.strGlass}</p>
                 </div>
+                <div className="">
+                    <h6 className="card-title mt-4 mb-2 fw-bold">{detail.strAlcoholic}</h6>
+                    
+                </div>
+
                 {
                     detail.strVideo &&
                     <div className="">

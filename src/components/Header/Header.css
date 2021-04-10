@@ -1,4 +1,8 @@
-/* .navbarColor{
+.headerStyle {
     background-color: #2d524a!important;
+    padding-bottom: 2%!important;
+}
 
-} */
+.headerStyle a, .h2HeaderColor {
+    color: white!important;
+}

@@ -1,0 +1,14 @@
+.containerAdmin{
+    background-color:#FF2400;
+    padding-bottom:20%!important;
+}
+.adminColStyle{
+    border-radius:0.80rem!important;  
+}
+.listAdminStyle{
+    background-color: #ffc107!important;  
+
+}
+.hoverStyleAdmin:hover{
+    background-color: #2d524a!important;
+}

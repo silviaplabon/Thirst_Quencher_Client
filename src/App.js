@@ -18,6 +18,7 @@ import Header from './components/Header/Header';
 import HomeDrinkDetails from './components/HomeDrinkDetails/HomeDrinkDetails';
 import HomeIngredientDetails from './components/HomeIngredientDetails/HomeIngredientDetails';
 import AddProducts from './components/AddProducts/AddProducts';
+import Category from  './components/Category/Category'
 export const UserContext = createContext();
 function App() {
   const [loggedInUser, setloggedInUser] = useState({});
@@ -29,18 +30,22 @@ function App() {
           <Route exact path="/">
             <Home></Home>
           </Route>
-          <Route exact path="/:name">
+          <PrivateRoute exact path="/:name">
             <Drinks></Drinks>
-          </Route>
+          </PrivateRoute>
           <Route exact path="/auth/login">
             <Login></Login>
           </Route>
-          <Route exact path="/auth/admin">
-            <Admin />
-          </Route>
+          <PrivateRoute exact path="/auth/setup/admin">
+            <Admin/>
+          </PrivateRoute>
           <Route exact path="/drinksByName/:name">
             <HomeDrinkDetails />
           </Route>
+          <PrivateRoute exact path="/auth/category">
+            <Category></Category>
+          </PrivateRoute>
+
           <Route exact path="/ingredientsByName/:name">
             <HomeIngredientDetails />
           </Route>

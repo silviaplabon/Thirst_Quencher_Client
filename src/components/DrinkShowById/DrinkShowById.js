@@ -8,7 +8,7 @@ const DrinkShowById = (props) => {
         history.push(`/drinksById/${idDrink}`);
     })
     return (
-        <div className="col">
+        <div className="col mt-3">
             <div className="card h-100 cardStyle" onClick={() => handleDetailsId(idDrink)}>
                 <img src={strDrinkThumb} className="card-img-top" alt="..." />
                 <div className="card-body cardBodyStyle">

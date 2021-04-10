@@ -1,5 +1,6 @@
  import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
+import './AddProducts.css'
 const axios = require('axios').default;
 
 
@@ -47,8 +48,8 @@ const AddProducts = () => {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)} className="bg-light p-4 formStyle">
+        <div className="">
+            <form onSubmit={()=>handleSubmit(onSubmit)} className="bg-light p-5 formStyle">
                 <div className="row d-flex">
                     <div className="col-md-12">
                         {/* <select id="select" onBlur={handleClick}>
@@ -59,7 +60,7 @@ const AddProducts = () => {
                             <option>RandomDrink</option>
                         </select> */}
                         <label className="">Please Select a Catagory: </label>
-                        <select ref={register} name="category">
+                        <select ref={register} name="category" >
                             <option value="PopularDrink">PopularDrink</option>
                             <option value="PopularIngredient">PopularIngredient</option>
                             <option value="LatestDrink">LatestDrink</option>
@@ -67,12 +68,12 @@ const AddProducts = () => {
                             <option value="RandomDrink">RandomDrink</option>
                         </select>
                     </div>
-                    <div className="col-md-5">
+                    <div className="col-md-5 mt-2">
                         <label for="productName">Product Name</label>
                         <input name="name" id="productName" className="form-control " defaultValue="" ref={register} />
                     </div>
-                    <div className="col-md-5 ms-2">
-                        <label for="productImg" className="mt-2">Add Photo</label>
+                    <div className="col-md-5 ms-2 mt-2">
+                        <label for="productImg" className="">Add Photo</label>
                         <input name="image" type="file" id="productImg" className="form-control " onChange={handleImageUpload} ref={register({ required: true })} />
                     </div>
                 </div>
