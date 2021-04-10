@@ -34,6 +34,9 @@ const HomeDetailDrink = () => {
             if (value !== "null null" && value.length > 3 && value !== "undefined undefined") {
                 const ingredient = document.createElement('div');
                 ingredient.className = "col mt-5";
+                ingredient.addEventListener('click',function(){
+                    history.push(`/ingredientsByName/${valueimg}`)
+                })
                 ingredient.innerHTML = `
                 <div className="card h-100" >
                     <img src="https://www.thecocktaildb.com/images/ingredients/${valueimg}-Medium.png" class="card-img-top" alt="..."/>

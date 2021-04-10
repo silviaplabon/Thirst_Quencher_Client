@@ -41,10 +41,10 @@ const HomeIngredientDetails = () => {
             <div className="col-md-12 d-flex justify-content-center row mx-1">
                 <div className="card mb-3">
                     <div className="row g-0">
-                        <div className="col-md-3 d-flex align-items-center justify-content-center">
+                        <div className="col-md-4 d-flex align-items-center justify-content-center">
                             <img src={`https://www.thecocktaildb.com/images/ingredients/${strIngredient}-Medium.png`} className="align-items-end imgSizeIngredient" />
                         </div>
-                        <div className="col-md-9">
+                        <div className="col-md-8">
                             <div className="card-body">
                                 <h5 className="card-title fw-bold text-center">{strIngredient}</h5>
                                 <p className="card-text text-justify">{strDescription}</p>
