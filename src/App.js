@@ -19,6 +19,7 @@ import HomeDrinkDetails from './components/HomeDrinkDetails/HomeDrinkDetails';
 import HomeIngredientDetails from './components/HomeIngredientDetails/HomeIngredientDetails';
 import AddProducts from './components/AddProducts/AddProducts';
 import Filter from  './components/Filter/Filter'
+import Alcoholic from './components/Alcoholic/Alcoholic';
 export const UserContext = createContext();
 function App() {
   const [loggedInUser, setloggedInUser] = useState({});
@@ -46,7 +47,7 @@ function App() {
             <Filter></Filter>
           </PrivateRoute>
           <PrivateRoute exact path="/auth/filter/alcoholic">
-            <Filter></Filter>
+            <Alcoholic></Alcoholic>
           </PrivateRoute>
           <PrivateRoute exact path="/auth/filter/nonalcoholic">
             <Filter></Filter>

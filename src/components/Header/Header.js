@@ -25,7 +25,7 @@ const Header = () => {
                     <div className="navbar-nav">
                         <input className="form-control me-3 mt-2" onChange={handleChange} type="search" placeholder="Search" aria-label="Search" />
                         <Link to="/" className="nav-link">Home</Link>
-                        <Link to="/auth/category" className=" nav-link">Category</Link>
+                        <Link to="/auth/filter" className=" nav-link">Filter</Link>
                         <Link to="/auth/setup/admin" className="nav-link">Admin</Link>
 
                         {loggedInUser.email ? <button onClick={() => setLoggedInUser({})} className="btn buttonColor logStyle  buttonStyleHeader  fw-bold " style={{color:'white'}}>Logout</button> :

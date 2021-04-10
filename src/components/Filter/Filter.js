@@ -1,21 +1,24 @@
 import React from 'react';
-
 import glassimg from '../../images/glass.jfif';
 import alcoholicimg from '../../images/alcoholic.jpg';
 import nonalcoholicimg from '../../images/nonalcoholic.jpg';
 import categoryimg from '../../images/category.jfif';
+import { useHistory } from 'react-router';
+import './Filter.css'
+
 const Filter = () => {
+    const history=useHistory();
     const handleAlcoholic=()=>{
-        history.push('/filter/alcoholic')
+        history.push('/auth/filter/alcoholic')
     }
     const handleNonAlcoholic=()=>{
-        history.push('/filter/nonalcoholic')
+        history.push('/auth/filter/nonalcoholic')
     }
     const handleGlass=()=>{
-        history.push('/filter/glass')
+        history.push('/auth/filter/glass')
     }
     const handleCategory=()=>{
-        history.push('/filter/category')
+        history.push('/auth/filter/category')
     }
 
     return (
@@ -31,7 +34,7 @@ const Filter = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col" onClick={()=>handleAlcoholic()}>
                     <div className="card h-100">
                          <div className="card-body cardBody h-75">
                             <img src={nonalcoholicimg} className="card-img-top h-100 w-100 " alt="" />
@@ -41,7 +44,7 @@ const Filter = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col" onClick={()=>handleGlass()}>
                     <div className="card h-100">
                     <div className="card-body cardBody h-75">
                         <img src={categoryimg} className="card-img-top h-100 w-100" alt="..." />
@@ -51,7 +54,7 @@ const Filter = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col" onClick={()=>handleCategory()}>
                     <div className="card h-100">
                     <div className="card-body cardBody h-75">
                         <img src={glassimg} className="card-img-top h-100 w-100" alt="..." />
