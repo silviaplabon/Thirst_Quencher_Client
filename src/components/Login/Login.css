@@ -1,6 +1,8 @@
 .loginAnchor {
     cursor: pointer;
-    color:black!important;
+}
+.colorWhite{
+    color:white!important;
 }
 
 .hrStyle {

@@ -39,7 +39,7 @@ const Home = () => {
     return (
         <div className="containerColor">
             { spinner ?
-            <div className="text-center  mb-5 pt-5 pb-5">
+            <div className="text-center  mb-5 pt-5 pb-5 spinnerClass">
                  <div className="spinner-grow spinnerColor" role="status">
                     <span className="visually-hidden">Loading...</span>
                 </div>
@@ -53,31 +53,31 @@ const Home = () => {
                 :
                 <div className="container pt-5">
                     <h5 className="text-center bgHomeStyle p-3 fw-bold mb-3">Popular Drinks</h5>
-                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 pt-1">
+                    <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 pt-1">
                         {
                             popularDrinks.map(drink => <DrinkShowByName drink={drink} state={true} btnshow={false} drinkname="PopularDrinks"></DrinkShowByName>)
                         }
                     </div>
                     <h5 className="text-center mt-5  bgHomeStyle  p-3 fw-bold mb-3">Popular Ingredients</h5>
-                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 pt-1">
+                    <div className="row row-cols-2 row-cols-sm-3  row-cols-md-4 g-4 pt-1">
                         {
                             popularIngredients.map(drink => <DrinkShowByName drink={drink} state={false} btnshow={false} drinkname="PopularIngredients"></DrinkShowByName>)
                         }
                     </div>
                     <h5 className="text-center mt-5  bgHomeStyle  p-3 fw-bold mb-3">Latest Drinks</h5>
-                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 pt-1">
+                    <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 pt-1">
                         {
                             latestDrinks.map(drink => <DrinkShowByName drink={drink} state={true} btnshow={false} drinkname="LatestDrinks"></DrinkShowByName>)
                         }
                     </div>
                     <h5 className="text-center mt-5  bgHomeStyle p-3 fw-bold mb-3">Random Ingredients</h5>
-                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 pt-1">
+                    <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 pt-1">
                         {
                             randomIngredients.map(drink => <DrinkShowByName drink={drink} state={false} btnshow={false} drinkname="RandomIngredients"></DrinkShowByName>)
                         }
                     </div>
                     <h5 className="text-center mt-5  bgHomeStyle p-3 fw-bold mb-3">Random  Drinks</h5>
-                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 pt-1">
+                    <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 pt-1">
                         {
                             randomDrinks.map(drink => <DrinkShowByName drink={drink} state={true} btnshow={false} drinkname="RandomDrinks"></DrinkShowByName>)
                         }

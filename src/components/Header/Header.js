@@ -28,7 +28,7 @@ const Header = () => {
                         <Link to="/auth/filter" className=" nav-link">Filter</Link>
                         <Link to="/auth/setup/admin" className="nav-link">Admin</Link>
 
-                        {loggedInUser.email ? <button onClick={() => setLoggedInUser({})} className="btn buttonColor logStyle   buttonStyleHeader  fw-bold  " style={{color:'white'}}>Logout</button> :
+                        {loggedInUser.email ? <button onClick={() => setLoggedInUser({})} className="btn buttonColor   buttonStyleHeader  fw-bold mb-1  " style={{color:'white'}}>Logout</button> :
                             <Link to="/auth/login" className="btn   buttonStyleHeader buttonColor fw-bold">Login</Link>
                         }
                     </div>

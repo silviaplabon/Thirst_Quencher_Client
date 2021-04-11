@@ -49,9 +49,10 @@ const DrinkShowByName = (props) => {
     return (
         <div className="col">
             <div className="card h-100 cardStyle" onClick={() => handleDetailsDrink(name, state)}>
-                <img src={imageURL} className="card-img-top" alt="Please again browse" />
-                <div className="card-body cardBodyStyle">
-                    <h6 className="card-title text-center">{name}</h6>
+                
+                <img src={imageURL} className="card-img-top w-100 heightImageDrink" alt="" />
+                <div className="card-body cardBodyStyle h6fontStyle h-25">
+                    <h6 className="text-center h6Style">{name}</h6>
                     {
                         btnshow &&
                         <div className="d-flex justify-content-between cursorEditDelete">

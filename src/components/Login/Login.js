@@ -122,7 +122,7 @@ const Login = () => {
       {!user.isSignedIn &&
         <div className="row container  rowLogin w-50 m-auto d-flex justify-content-center align-items-center flex-column">
           <div className="col-md-12 cardSignStyle p-4 mt-5">
-            {authState ? <h5>Login</h5> : <h5 className=" ">Sign Up</h5>}
+            {authState ? <h5 className="colorWhite">Login</h5> : <h5 className="colorWhite ">Sign Up</h5>}
 
             <form onSubmit={handleSubmit(onSubmit)} id="formsignup" className="">
               {!authState && <input type="text" onBlur={handleChange} name="displayName" placeholder="Your Name" id="inputName" className="form-control mt-3"
@@ -154,8 +154,8 @@ const Login = () => {
             </form>
             {
               authState ?
-                <h6 className="fw-light mt-1">Don't Have an account?<a className="loginAnchor fw-bold fw-lighter  btn text-decoration-none text-warning" onClick={() => setAuthState(!authState)}> Sign Up</a> </h6> :
-                <h6 className="fw-light mt-1">Already Have an account?<a className="loginAnchor btn fw-bold text-decoration-none text-warning " onClick={() => setAuthState(!authState)}> Sign In</a></h6>
+                <h6 className="fw-light mt-1 colorWhite">Don't Have an account?<a className=" colorWhite loginAnchor fw-bold fw-lighter  btn text-decoration-none text-warning" onClick={() => setAuthState(!authState)}> Sign Up</a> </h6> :
+                <h6 className="fw-light mt-1 colorWhite">Already Have an account?<a className="colorWhite loginAnchor btn fw-bold text-decoration-none text-warning " onClick={() => setAuthState(!authState)}> Sign In</a></h6>
             }
           </div>
 

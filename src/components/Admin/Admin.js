@@ -9,8 +9,8 @@ const Admin = () => {
 
         <div className="containerAdmin">
         <div className="container m-auto">
-            <div className="row">
-                <div className="col-md-4 list-group mt-5 mb-5 adminColStyle">
+            <div className="row mx-1">
+                <div className="col-md-4 list-group mt-5 mb-5  adminColStyle">
                     <button type="button" onClick={()=>setState(true)} class="list-group-item listAdminStyle  list-group-item-action active hoverStyleAdmin" aria-current="true">
                         Add Products
                     </button>

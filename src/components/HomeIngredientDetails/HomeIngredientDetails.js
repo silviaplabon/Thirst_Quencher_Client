@@ -56,7 +56,7 @@ const HomeIngredientDetails = () => {
                         <div className="card mb-3 shadow-lg">
                             <div className="row g-0">
                                 <div className="col-lg-4 d-flex align-items-center justify-content-center">
-                                    <img src={`https://www.thecocktaildb.com/images/ingredients/${strIngredient}.png`} className=" mt-5 align-items-end imgSizeIngredient " />
+                                    <img src={`https://www.thecocktaildb.com/images/ingredients/${strIngredient}-Medium.png`} className=" mt-5 align-items-center w-50 h-50 imgSizeIngredient " />
                                 </div>
                                 <div className="col-lg-8 col8">
                                     <div className="card-body">
