@@ -4,3 +4,6 @@
 .cardStyle{
     border:0px!important;
 }
+.cursorEditDelete{
+    cursor:pointer;
+}

@@ -24,6 +24,7 @@ import GlassData from './components/GlassData/GlassData';
 import CategoryData from './components/CategoryData/CategoryData';
 import Glass from './components/Glass/Glass';
 import Category from './components/Category/Category';
+import EditProducts from './components/EditProducts/EditProducts';
 export const UserContext = createContext();
 function App() {
   const [loggedInUser, setloggedInUser] = useState({});
@@ -68,8 +69,9 @@ function App() {
           <PrivateRoute exact path="/filter/category/:name">
             <CategoryData></CategoryData>
           </PrivateRoute>
-
-
+          <PrivateRoute exact path="/admin/:drinkname/:id">
+            <EditProducts></EditProducts>
+          </PrivateRoute>
           <Route exact path="/ingredientsByName/:name">
             <HomeIngredientDetails />
           </Route>

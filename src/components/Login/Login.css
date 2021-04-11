@@ -8,7 +8,12 @@
 .cardSignStyle{
      border:1px solid gray;
      border-radius:0.65rem!important;
+     background-color:#F9A602!important;
 }
+.btnColorLogin{
+    background-color:#2D524A!important;
+}
+
 @media only screen and (min-device-width: 200px) and (max-device-width: 628px) {
    .rowLogin{
        margin: 0 7%!important;

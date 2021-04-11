@@ -21,7 +21,7 @@ const AddProducts = () => {
         const queryData=data.category;
         {
             queryData ?
-                fetch(`https://sleepy-plains-42535.herokuapp.com/${queryData}`, {
+                fetch(`https://sleepy-plains-42535.herokuapp.com/adddata/${queryData}`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -49,7 +49,7 @@ const AddProducts = () => {
 
     return (
         <div className="container">
-            <form onSubmit={()=>handleSubmit(onSubmit)} className="bg-light p-5 formStyle">
+            <form onSubmit={handleSubmit(onSubmit)} className="bg-light p-5 formStyle">
                 <div className="row d-flex">
                     <div className="col-md-12">
                         {/* <select id="select" onBlur={handleClick}>

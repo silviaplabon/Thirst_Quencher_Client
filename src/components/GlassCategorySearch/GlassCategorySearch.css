@@ -1,3 +1,8 @@
-.btnColor{
+.btnColorSearch{
+   background-color: #ffc107!important;
+}
+.containerColorGlassCategory{
    background-color: #FF2400!important;
+   padding-bottom:25%!important;
+   color:white!important;
 }

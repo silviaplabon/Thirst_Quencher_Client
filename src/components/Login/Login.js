@@ -3,10 +3,10 @@ import { UserContext } from '../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import './Login.css'
 import { facebookSignIn, googleSignIn, inititliazeLoginFramework, signOut, signIn, signUp, githubSignIn, updateUsername, storeAuthToken } from './Loginmanager';
 import Header from '../Header/Header';
 import { useForm } from 'react-hook-form';
+import './Login.css'
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -118,7 +118,7 @@ const Login = () => {
   }
 
   return (
-    <div className="">
+    <div className="containerColor">
       {!user.isSignedIn &&
         <div className="row container  rowLogin w-50 m-auto d-flex justify-content-center align-items-center flex-column">
           <div className="col-md-12 cardSignStyle p-4 mt-5">
@@ -148,8 +148,8 @@ const Login = () => {
               {errors.password && <span className="error">{errors.password.message}</span>}
 
               {!authState && <input type="password" onBlur={handleChange} name="repassword" placeholder="Confirm Password" id="inputPassword" className="form-control mb-2 mt-2" required />}
-              {authState ? <input type="submit" value="Sign In" className="btn btn-lg w-100 btn-primary" /> :
-                <input type="submit" value="Sign Up" className="btn btn-lg w-100 btn-primary" />
+              {authState ? <input type="submit" value="Sign In" className="btn btn-lg btnColorLogin w-100 btn-primary" /> :
+                <input type="submit" value="Sign Up" className="btn w-100 btn-lg btnColorLogin" />
               }
             </form>
             {
