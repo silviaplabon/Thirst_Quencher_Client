@@ -34,7 +34,7 @@ const Filter = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col" onClick={()=>handleAlcoholic()}>
+                <div className="col" onClick={()=>handleNonAlcoholic()}>
                     <div className="card h-100">
                          <div className="card-body cardBody h-75">
                             <img src={nonalcoholicimg} className="card-img-top h-100 w-100 " alt="" />

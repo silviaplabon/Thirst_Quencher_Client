@@ -36,7 +36,7 @@ const DrinkShowByName = (props) => {
                 })
             
             :
-            alert("Admin disable this option for user.User Can only update a product")
+            alert("Admin disable this option for user. User Can only update a product.")
         }
 
         
