@@ -17,7 +17,7 @@ const Admin = () => {
                     <button type="button" onClick={()=>setState(false)} class="list-group-item listAdminStyle list-group-item-action active hoverStyleAdmin" aria-current="true">
                         Manage Products
                     </button>
-                    <button type="button" class="list-group-item list-group-item-action active  listAdminStyle  hoverStyleAdmin" aria-current="true">
+                    <button type="button" onClick={()=>setState(false)} class="list-group-item list-group-item-action active  listAdminStyle  hoverStyleAdmin" aria-current="true">
                         Edit Products
                     </button>
                 </div>

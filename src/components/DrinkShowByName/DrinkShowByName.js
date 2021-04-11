@@ -22,7 +22,7 @@ const DrinkShowByName = (props) => {
         }
     })
     const handleDelete = (drinkname,id) => {
-        {loggedInUser.email=="silviaplabon@gmail.com" &&
+        {loggedInUser.email=="silviaplabon@gmail.com" ?
 
             fetch(`https://sleepy-plains-42535.herokuapp.com/deleteProduct/${drinkname}/${id}`, {
                 method: 'DELETE'
@@ -34,7 +34,11 @@ const DrinkShowByName = (props) => {
                         alert('Succesfully  deleted !')
                     }
                 })
-            }
+            
+            :
+            alert("Admin disable this option for user.User Can only update a product")
+        }
+
         
     }
     const handleUpdate = (drinkname, id) => {
