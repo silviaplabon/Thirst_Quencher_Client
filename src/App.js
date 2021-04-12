@@ -24,6 +24,7 @@ import GlassData from './components/GlassData/GlassData';
 import CategoryData from './components/CategoryData/CategoryData';
 import Glass from './components/Glass/Glass';
 import Category from './components/Category/Category';
+import NonAlcoholic from './components/NonAlcoholic/NonAlcoholic';
 import EditProducts from './components/EditProducts/EditProducts';
 export const UserContext = createContext();
 function App() {
