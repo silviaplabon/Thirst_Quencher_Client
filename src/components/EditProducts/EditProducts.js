@@ -72,13 +72,13 @@ const EditProducts = () => {
             <div className="container pt-5 pb-5">
                 <form onSubmit={handleSubmit(onSubmit)} className="bg-light p-5 formStyle">
 
-                    <div className="row w-75   g-4 m-auto">
+                    <div className="row w-100   g-4 m-auto">
                         <div className="col-md-5">
                             <div className="card h-100">
                                 <img src={data.imageURL} className="card-img-top h-75 w-100" alt="" />
                                 <div className="card-body h-25" style={{ color: 'black' }}>
                                     <h6 className="card-title text-center">{data.name}</h6>
-                                    <p className="text-center" style={{ fontSize: '13px' }}>{data.imageURL}</p>
+                                    <p className="text-center" style={{ fontSize: '10px' }}>{data.imageURL}</p>
                                 </div>
                             </div>
                         </div>
