@@ -55,7 +55,7 @@ function App() {
             <Alcoholic></Alcoholic>
           </PrivateRoute>
           <PrivateRoute exact path="/auth/filter/nonalcoholic">
-            <Filter></Filter>
+            <NonAlcoholic></NonAlcoholic>
           </PrivateRoute>
           <PrivateRoute exact path="/auth/filter/glass">
             <Glass></Glass>
