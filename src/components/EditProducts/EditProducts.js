@@ -18,7 +18,7 @@ const EditProducts = () => {
     const [update, setUpdate] = useState(false);
 
     function loadProduct(drinkname, id) {
-        fetch(`https://sleepy-plains-42535.herokuapp.com/product/${drinkname}/${id}`)
+        fetch(` https://sleepy-plains-42535.herokuapp.com/product/${drinkname}/${id}`)
             .then(res => res.json())
             .then(data => {
                 setData(data);
@@ -31,7 +31,7 @@ const EditProducts = () => {
             name: data.name,
             imageURL: imageURL,
         };
-        fetch(`https://sleepy-plains-42535.herokuapp.com/update/${drinkname}/${id}`, {
+        fetch(` https://sleepy-plains-42535.herokuapp.com/update/${drinkname}/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(productData)
@@ -42,8 +42,6 @@ const EditProducts = () => {
                     alert('updated this product')
                 }
             })
-
-
     }
     const handleImageUpload = event => {
         console.log(event.target.files[0])
@@ -63,7 +61,7 @@ const EditProducts = () => {
         loadProduct(drinkname, id)
         document.getElementById('invisibleClass1').style.display = 'none';
         document.getElementById('invisibleClass2').style.display = 'none';
-        // https://sleepy-plains-42535.herokuapp.com/update/PopularDrinks/6072d853cec39e00150e8077
+        //  https://sleepy-plains-42535.herokuapp.com/update/PopularDrinks/6072d853cec39e00150e8077
 
     }, [drinkname])
 
@@ -102,7 +100,7 @@ const EditProducts = () => {
                             </div>
                             <div className=" col-md-12 d-flex justify-content-end">
                                 {errors.exampleRequired && <span>This field is required</span>}
-                                <input type="submit" className="mt-3 btn " style={{backgroundColor:'#ffc107'}} value="Save" />
+                                <input type="submit" className="mt-3 btn " style={{ backgroundColor: '#ffc107' }} value="Save" />
                             </div>
                         </div>
                     </div>

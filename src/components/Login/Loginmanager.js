@@ -19,7 +19,9 @@ export const signUp = (email, password) => {
                 email: email,
                 photo: photoURL,
                 isSignedIn: true,
-                error: ''
+                error: '',
+                admin:false,
+                role:''
             }
             return User;
         })
@@ -39,7 +41,9 @@ export const signIn = (email, password) => {
                 email: email,
                 photo: photoURL,
                 isSignedIn: true,
-                error: ''
+                error: '',
+                admin:false,
+                role:''
             }
             return User;
         })
@@ -61,7 +65,9 @@ export const googleSignIn = () => {
                 email: email,
                 photo: photoURL,
                 isSignedIn: true,
-                error: ''
+                error: '',
+                admin:false,
+                role:''
             }
             return signedInUser;
         })
@@ -83,6 +89,8 @@ export const facebookSignIn = () => {
             var user = res.user;
             user.error = '';
             user.isSignedIn = true;
+            user.admin=false;
+            user.role='';
             return user;
         }
         )
@@ -108,6 +116,8 @@ export const signOut = event => {
                 email: '',
                 password: '',
                 error: '',
+                admin:false,
+                role:'',
                 isValid: false
             }
             return signedOutUser;
@@ -132,7 +142,9 @@ export const githubSignIn = () => {
                 displayName: displayName,
                 email: email,
                 photo: photoURL,
-                isSignedIn: true
+                isSignedIn: true,
+                admin:false,
+                role:''
             }
             return githubUser;
         })
@@ -153,11 +165,11 @@ export const updateUsername = name => {
     .then(function () {    console.log("Username updated successfully");   })
     .catch(function (error) {   console.log(error)  });
 }
-// export const storeAuthToken = () => {
-//     firebase.auth().currentUser.getIdToken(true)
-//         .then(function (idToken) {
-//             sessionStorage.setItem('token', idToken)
-//         })
-//         .catch(function (error) {
-//         });
-// }
+export const storeAuthToken = () => {
+    firebase.auth().currentUser.getIdToken(true)
+        .then(function (idToken) {
+            localStorage.setItem('token', idToken)
+        })
+        .catch(function (error) {
+        });
+}

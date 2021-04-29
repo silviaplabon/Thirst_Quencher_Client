@@ -1,18 +1,16 @@
  import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import { UserContext } from '../../App';
 import './AddProducts.css'
 const axios = require('axios').default;
 
 
 const AddProducts = () => {
     const { register, handleSubmit, watch, errors } = useForm();
+    const [loggedInUser,setLoggedInUser]=useContext(UserContext);
     const [imageURL, setImageURL] = useState(null);
     const [selected, setSelected] = useState(); 
-    // const handleClick = () => {
-    //     let x = document.getElementById('select').selectedIndex;
-    //     alert(document.getElementsByTagName("option")[x].value);
-    //     setSelected(document.getElementsByTagName("option")[x].value);
-    // }
     const onSubmit = data => {
         const productData = {
             name: data.name,
@@ -21,7 +19,7 @@ const AddProducts = () => {
         const queryData=data.category;
         {
             queryData ?
-                fetch(`https://sleepy-plains-42535.herokuapp.com/adddata/${queryData}`, {
+                fetch(` https://sleepy-plains-42535.herokuapp.com/adddata/${queryData}`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -52,13 +50,6 @@ const AddProducts = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="bg-light p-5 formStyle">
                 <div className="row d-flex">
                     <div className="col-md-12">
-                        {/* <select id="select" onBlur={handleClick}>
-                            <option>PopularDrink</option>
-                            <option>PopularIngredient</option>
-                            <option>LatestDrink</option>
-                            <option>RandomIngredient</option>
-                            <option>RandomDrink</option>
-                        </select> */}
                         <label className="">Please Select a Catagory: </label>
                         <select ref={register} name="category" >
                             <option value="PopularDrink">PopularDrink</option>
@@ -79,7 +70,12 @@ const AddProducts = () => {
                 </div>
                 <div className="d-flex justify-content-end">
                     {/* {errors.exampleRequired && <span>This field is required</span>} */}
-                    <input type="submit" className="mt-3 btn btn-success" value="Save" />
+                   {
+                 (loggedInUser.admin==true &&loggedInUser.role=="Administrator")&&<input type="submit" className="mt-3 btn btn-success" value="Save" />
+                   }
+
+                       
+                    
                 </div>
             </form>
         </div>

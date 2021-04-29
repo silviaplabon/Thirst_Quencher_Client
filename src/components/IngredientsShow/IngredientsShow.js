@@ -6,9 +6,9 @@ const IngredientsShow = (props) => {
     return (
         <div className="col">
             <div className="card h-100">
-                <img src="https:www.thecocktaildb.com/images/ingredients/`${name}`-Medium.png" class="card-img-top" alt="..." />
-                <div class="card-body cardHomeDrink" >
-                    <p class="card-text text-center">{quantity}</p>
+                <img src={`https://www.thecocktaildb.com/images/ingredients/${name}-Small.png`} className="card-img-top" alt="..." />
+                <div className="card-body cardHomeDrink" >
+                    <p className="card-text text-center">{quantity}</p>
                 </div>
             </div>
         </div>

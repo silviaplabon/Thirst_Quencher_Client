@@ -1,0 +1,62 @@
+.gridDiv{
+    display: grid;
+    grid-template-columns: repeat(11,1fr);
+}
+.grid1{
+    grid-column: 1 / span 3;
+}
+.grid2{
+    grid-column: 4 / span 3;
+}
+.grid3{
+    grid-column: 7 / span 5;
+}
+li{
+    list-style-type: none;
+}
+@media only screen and (min-device-width: 250px) and (max-device-width:576px) {
+    .col1Style{
+        width:40%!important;
+        padding:0px;
+    }
+    .col2Style{
+        width:35%!important;
+        padding:0px;
+    }
+    .col3Style{
+        width:18%!important;
+        padding:0px;
+    }
+    .rowStyle{
+        width:88%!important;
+        margin:0 auto;
+    }
+    
+    li{
+        font-size:9px!important;
+    }
+    h5{
+     font-size:14px!important;
+    
+    }
+    ul{
+        padding:0!important;
+    }
+      .addMessageSection{
+           margin-left:9%!important;
+       }
+}
+ @media only screen and (min-device-width: 576px) and (max-device-width:768px) {
+     
+       .colStyle{
+           padding:0px;
+       }
+       li{
+           font-size:9px!important;
+       }
+       ul{
+        font-size:11px!important;
+        padding:0!important;
+
+       }
+}

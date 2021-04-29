@@ -1,7 +1,10 @@
+import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import DrinkShowByName from '../DrinkShowByName/DrinkShowByName';
+import ReviewCollection from '../ReviewCollection/ReviewCollection';
 
 import './Home.css'
+import Footer from '../Footer/Footer';
 const Home = () => {
     const [popularDrinks, setPopularDrinks] = useState([])
     const [popularIngredients, setPopularIngredient] = useState([])
@@ -11,26 +14,26 @@ const Home = () => {
     const [spinner, setSpinner] = useState(true);
 
     useEffect(() => {
-        fetch('https://sleepy-plains-42535.herokuapp.com/productdata/PopularDrinks')
+        fetch(' https://sleepy-plains-42535.herokuapp.com/productdata/PopularDrinks')
             .then(res => res.json())
             .then(data => {
                 setPopularDrinks(data)
                 setSpinner(false)
             })
 
-        fetch('https://sleepy-plains-42535.herokuapp.com/productdata/PopularIngredients')
+        fetch(' https://sleepy-plains-42535.herokuapp.com/productdata/PopularIngredients')
             .then(res => res.json())
             .then(data => setPopularIngredient(data))
 
-        fetch('https://sleepy-plains-42535.herokuapp.com/productdata/LatestDrinks')
+        fetch(' https://sleepy-plains-42535.herokuapp.com/productdata/LatestDrinks')
             .then(res => res.json())
             .then(data => setLatestDrinks(data))
 
-        fetch('https://sleepy-plains-42535.herokuapp.com/productdata/RandomIngredients')
+        fetch(' https://sleepy-plains-42535.herokuapp.com/productdata/RandomIngredients')
             .then(res => res.json())
             .then(data => setRandomIngredients(data))
 
-        fetch('https://sleepy-plains-42535.herokuapp.com/productdata/RandomDrinks')
+        fetch(' https://sleepy-plains-42535.herokuapp.com/productdata/RandomDrinks')
             .then(res => res.json())
             .then(data => setRandomDrinks(data))
     }, [])
@@ -84,6 +87,9 @@ const Home = () => {
                     </div>
                 </div>
             }
+            <ReviewCollection></ReviewCollection>
+            <Footer></Footer>
+            
         </div>
 
     );

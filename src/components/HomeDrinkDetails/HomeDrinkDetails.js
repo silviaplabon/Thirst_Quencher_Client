@@ -1,31 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import './HomeDrink.css';
+import DrinkShowById from '../DrinkShowById/DrinkShowById';
+import { UserContext } from '../../App';
+import { CartContext } from '../../App';
+import { LaptopWindowsSharp, SettingsInputAntennaTwoTone } from '@material-ui/icons';
+import Footer from '../Footer/Footer';
+
 
 const HomeDetailDrink = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [cart,setCart]=useContext(CartContext)
+
     const { name } = useParams();
+
     const { id } = useParams();
     const history = useHistory();
     const [detail, setDetail] = useState({})
+    const [drinks, setDrinks] = useState([])
+    const [orderData, setOrderData] = useState([])
+    const [state,setState]=useState(false);
 
 
     useEffect(() => {
         let url;
-        let url1 = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`;
-        let url2 = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
+        let url1 = ` https://sleepy-plains-42535.herokuapp.com/drinkDetailByName/${name}`;
+        let url2 = ` https://sleepy-plains-42535.herokuapp.com/drinkDetailById/${id}`;
         {
             name ? url = url1 : url = url2
         }
         fetch(url)
             .then(res => res.json())
-            .then(data => { setDetail(data.drinks[0]); })
-    }, [])
+            .then(data => { setDetail(data); })
+    }, [name||id])
 
-    const { strDrink, strInstructions, strDrinkThumb } = detail;
-    console.log(detail)
+    const { strDrink, strInstructions, strDrinkThumb, strGlass, strCategory, strAlcoholic, price } = detail;
+
+    useEffect(() => {
+        let url = ` https://sleepy-plains-42535.herokuapp.com/similarDrink/${strGlass}/${strCategory}/${strAlcoholic}`;
+        console.log(url)
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setDrinks(data);
+            })
+
+    }, [detail])
+
+
 
     useEffect(() => {
         const ingredientContainer = document.getElementById('ingredientContainer');
@@ -35,15 +60,15 @@ const HomeDetailDrink = () => {
             const valueimg = `${detail[`${`strIngredient${i}`}`]}`;
             if (value !== "null null" && value.length > 3 && value !== "undefined undefined") {
                 const ingredient = document.createElement('div');
-                ingredient.className = "col mt-5";
-                ingredient.addEventListener('click',function(){
+                ingredient.className = "col ";
+                ingredient.addEventListener('click', function () {
                     history.push(`/ingredientsByName/${valueimg}`)
                 })
                 ingredient.innerHTML = `
-                <div className="card h-100" >
-                    <img src="https://www.thecocktaildb.com/images/ingredients/${valueimg}-Medium.png" class="card-img-top" alt="..."/>
-                <div class="card-body cardHomeDrink" >
-                    <p class="card-text text-center" >${value}</p>
+                <div className="card h-75" >
+                    <img src="https://www.thecocktaildb.com/images/ingredients/${valueimg}-Small.png" className="img-fluid " alt="..."/>
+                <div className="card-body cardHomeDrink" >
+                    <p className=" " >${value}</p>
                 </div>
                 </div>`
                 ingredientContainer.appendChild(ingredient);
@@ -51,40 +76,140 @@ const HomeDetailDrink = () => {
         }
     }, [detail])
 
-    return (
-        <div className=" detaildrinkstyle container mt-5">
-           
-            <div className=" row m-auto mx-5 px-5 detaildrinkstyle">
-                <div className=" mt-5 col-md-5 cardHomeDrink card h-100">
-                    <img src={strDrinkThumb} class="card-img-top h-100 " alt="..."></img>
-                </div>
-                <div className="col-md-7 row row-col-xs-1 row-cols-md-3 row-cols-sm-2 " id="ingredientContainer">
-                </div>
-            </div>
 
-            <div className="w-75 m-auto text-center d-flex-column justify-content-center align-items-center">
-                <div className="">
-                    <h6 className="card-title mt-5 mb-2 fw-bold">Instructions</h6>
-                    <p className="card-text">{detail.strInstructions}</p>
-                </div>
-                <div className="">
-                    <h6 className="card-title mt-4 mb-2 fw-bold">Glass</h6>
-                    <p className="card-text">Serve-{detail.strGlass}</p>
-                </div>
-                <div className="">
-                    <h6 className="card-title mt-4 mb-2 fw-bold">{detail.strAlcoholic}</h6>
-                    
-                </div>
+    useEffect(() => {
 
-                {
-                    detail.strVideo &&
-                    <div className="">
-                        <p className="card-text mt-4">Recipe</p>
-                        <a href={detail.strVideo} target="_blank"><FontAwesomeIcon className="iconSize" icon={faYoutube} style={{ fontSize: '60px', color: '#E62117' }} /></a>
-                    </div>
+        let url = ` https://sleepy-plains-42535.herokuapp.com/SingleOrderDataShow/${detail.idDrink}`;
+        console.log(url, "url of singleorderdata");
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                if(data){
+                 setOrderData(data); 
+                 setState(true);
+            }
+           else{
+               setState(false);
+           } })
+    }, [detail])
+    const handleAddOrderByOrderData = orderData => {
+        console.log(orderData);
+        const detailsUpdate = {
+            price:( parseInt(detail.price)+ parseInt(orderData?.price)),
+            quantity:( 1 + parseInt(orderData?.quantity)),
+        }
+        fetch(` https://sleepy-plains-42535.herokuapp.com/updateNewPriceAndQuantity/${orderData?._id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(detailsUpdate)
+        })
+            .then(res => res.json())
+            .then(data => { console.log(data); alert('Order Inserted Successfully') })
+    }
+
+
+
+    const handleAddOrder = (detail, email) => {
+        const detailsNew = {
+            idDrink: detail.idDrink,
+            strDrink: detail.strDrink,
+            price: detail.price,
+            strDrinkThumb:detail.strDrinkThumb,
+            quantity: 1,
+            email: email
+        }
+        console.log(detailsNew)
+        fetch(' https://sleepy-plains-42535.herokuapp.com/AddSingleOrder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(detailsNew)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert('your Order placed successfully');
+                        fetch(' https://sleepy-plains-42535.herokuapp.com/SingleOrderUser/orderLength?email=' + loggedInUser?.email,
+                            {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                }
+                            }
+                        )
+                            .then(res => res.json())
+                            .then(data => {
+                                    setCart(data)
+                             
+                            })
+                   
+
                 }
+            })
+    }
+
+    return (
+        <>
+        <div className="containerColor">
+            <div className=" detaildrinkstyle container ">
+
+                <div className=" row  detaildrinkstyle d-flex">
+                    <div className=" mt-5 col-md-5 col-sm-5 cardHomeDrink card h-100 mx-1">
+                        <img src={strDrinkThumb} className="card-img-top h-100 " alt="..."></img>
+
+                    </div>
+                    <div className="col-md-7 col-sm-7 row row-cols-xs-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 mt-5 " id="ingredientContainer">
+                    </div>
+                </div>
+
+                <div className="w-75 m-auto text-center d-flex-column justify-content-center align-items-center">
+                    <div className="">
+                        <h6 className="card-title mt-5 mb-2 fw-bold">Instructions</h6>
+                        <p className="card-text">{detail.strInstructions}</p>
+                    </div>
+                    <div className="">
+                        <h6 className="card-title mt-4 mb-2 fw-bold">Glass</h6>
+                        <p className="card-text">Serve-{detail.strGlass}</p>
+                    </div>
+                    <div className="">
+                        <h6 className="card-title mt-4 mb-2 fw-bold">{detail.strAlcoholic}</h6>
+
+                    </div>
+
+                    {
+                        detail.strVideo &&
+                        <div className="">
+                            <p className="card-text mt-4 fw-bold">Recipe</p>
+                            <a href={detail.strVideo} target="_blank"><FontAwesomeIcon className="iconSize" icon={faYoutube} style={{ fontSize: '60px', color: '#E62117' }} /></a>
+                        </div>
+                    }
+                    <div className="">
+                        <h6 className="ms-1 text-center"> ${price}</h6>
+                        {
+         state==false&& <button className="btn btn-primary btn-sm me-1 mt-1 btnCart" onClick={() => handleAddOrder(detail, loggedInUser.email)}>Add To Cart</button>
+                               
+                        }
+                        {
+                            state==true &&
+                         <button className="btn btn-primary btn-sm me-1 mt-1 btnCart" onClick={() => handleAddOrderByOrderData(orderData)}>Add To Cart</button>
+                        }
+                    </div>
+                </div>
             </div>
+
+            <div className="col-md-12 container">
+                <h5 className="text-center mt-5 text-white p-3" style={{ backgroundColor: '#2d524a' }}>Similar Drinks</h5>
+                <div className="row row-cols-1  row-cols-sm-2  row-cols-md-3 row-cols-lg-4  ">
+                    {
+                        drinks.map(drink => <DrinkShowById drink={drink} state={false}></DrinkShowById>)
+                    }
+                </div>
+            </div>
+
         </div>
+        <Footer></Footer>
+        </>
     );
 };
 

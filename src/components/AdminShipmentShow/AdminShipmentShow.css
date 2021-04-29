@@ -1,0 +1,26 @@
+
+
+.liStyle{
+    display:grid!important;
+    grid-template-columns:repeat(10,1fr)!important;
+   
+   
+}
+.liAdminStyle{
+    background-image: linear-gradient(-90deg,red,#333);
+}
+
+.fontShip{
+    font-size:14px!important;
+}
+
+.emailAdminStyle{
+    grid-column: 1/ span 5!important;
+}
+.dateAdminStyle{
+    grid-column: 6/ span 4!important;
+}
+.destinationAdminStyle{
+    grid-column:10/ span 1 important;
+}
+

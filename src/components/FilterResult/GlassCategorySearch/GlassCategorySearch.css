@@ -1,0 +1,33 @@
+.btnColorSearch{
+   background-color: #ffc107!important;
+}
+.containerColorGlassCategory{
+   background-color: #f0f0f0!important;
+   padding-bottom:25%!important;
+   color:black!important;
+}
+/* #FF2400 */
+/* 
+@media only screen and (min-device-width: 993px) and (max-device-width:2000px) {
+.listGlassCategoryStyle{
+   display:grid!important;
+   grid-template-columns: repeat(5,1fr)!important;
+}
+}
+@media only screen and (min-device-width: 768px) and (max-device-width:992px) {
+   .listGlassCategoryStyle{
+      grid-template-columns: repeat(4,1fr)!important;
+   }
+}
+@media only screen and (min-device-width: 576px) and (max-device-width:767px) {
+   .listGlassCategoryStyle{
+      grid-template-columns: repeat(3,1fr)!important;
+   }
+}
+@media only screen and (min-device-width: 200px) and (max-device-width:575px) {
+   .listGlassCategoryStyle{
+      grid-template-columns: repeat(2,1fr)!important;
+   }
+
+}
+ */

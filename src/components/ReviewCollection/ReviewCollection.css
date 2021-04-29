@@ -1,0 +1,89 @@
+.imageSlider{
+    border-radius:50%!important;
+    height:6rem!important;
+    width:6rem!important;
+}
+.cardStyle{
+    border:0!important;
+    background-color:''!important;
+}
+.cardBody{
+    width:82%!important;
+    margin:auto!important;
+}
+.btnReview{
+    background-image: linear-gradient(-90deg,#333,#fff000,#2d524a)!important;
+    color:black;
+    box-shadow:4px 3px 3px red;
+}
+.h6Style{
+    font-size:0.80rem!important;
+}
+.spanStyle{
+    font-size:17px!important;
+    color:red!important;
+}
+.quoteColor{
+    font-size:20px!important;
+    color:#fff000!important;
+}
+@media only screen and (min-device-width: 992px) and (max-device-width:1202px) {
+    .h6Style{
+        font-size:0.70rem!important;
+    }
+}
+@media only screen and (min-device-width: 767px) and (max-device-width:992px) {
+    .h6Style{
+        font-size:0.49rem!important;
+    }
+    .spanStyle{
+        font-size:11px!important;
+    }
+    .h4Style{
+        margin-top:4rem!important;
+    }
+    .pStyle{
+        font-size:12px!important;
+    }
+    .quoteColor{
+        font-size:14px!important;
+    }
+}
+@media only screen and (min-device-width: 518px) and (max-device-width:767px) {
+    .h6Style{
+        font-size:0.60rem!important;
+    }
+    .btnReview{
+        margin-bottom:6rem!important;
+
+    }
+    .spanStyle{
+        font-size:11px!important;
+    }
+}
+@media only screen and (min-device-width: 366px) and (max-device-width:518px) {
+    .h6Style{
+        font-size:0.50rem!important;
+    }
+    .btnReview{
+        margin-bottom:3rem!important;
+
+    }
+    .spanStyle{
+        font-size:9px!important;
+    }
+
+   
+}
+@media only screen and (min-device-width: 250px) and (max-device-width:366px) {
+    .h6Style{
+        font-size:0.35rem!important;
+    }
+    .btnReview{
+        margin-bottom:3.5rem!important;
+
+    }
+    .spanStyle{
+        font-size:8px!important;
+    }
+}

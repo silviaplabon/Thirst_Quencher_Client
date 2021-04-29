@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import DrinkShowById from '../DrinkShowById/DrinkShowById';
 import DrinkShowByName from '../DrinkShowByName/DrinkShowByName';
+import Footer from '../Footer/Footer';
 import './HomeIngredientDetails.css'
 
 const HomeIngredientDetails = () => {
@@ -15,28 +16,28 @@ const HomeIngredientDetails = () => {
 
     useEffect(() => {
         let url;
-        let url1 = `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${name}`;
-        let url2 = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=${id}`;
+        let url1 = ` https://sleepy-plains-42535.herokuapp.com/ingredientByName/${name}`;
+        let url2 = ` https://sleepy-plains-42535.herokuapp.com/ingredientById/${id}`;
         {
             name ? url = url1 : url = url2
         }
         fetch(url)
             .then(res => res.json())
-            .then(data => { setDetail(data.ingredients[0]); setSpinner(false) })
+            .then(data => { setDetail(data); setSpinner(false) })
     }, [])
+    const { strIngredient, strDescription, strType, strAlcohol,_id } = detail;
 
     useEffect(() => {
-        let ingredienturl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${name}`;
+        let ingredienturl = ` https://sleepy-plains-42535.herokuapp.com/ingredientDrinksByName/${strIngredient}`;
         fetch(ingredienturl)
             .then(res => res.json())
-            .then(data => { setDrinks(data.drinks); setSpinner(false) })
-    }, [])
+            .then(data => { setDrinks(data); setSpinner(false) })
+    }, [strIngredient])
 
 
-    const { strIngredient, strDescription, strType, strAlcohol } = detail;
-    console.log(detail)
 
     return (
+        <>
         <div className="container">
             { spinner ?
                 <div className="text-center  mb-5 pt-5 pb-5">
@@ -64,7 +65,7 @@ const HomeIngredientDetails = () => {
                                         <p className="card-text text-justify pIngredient">{strDescription}</p>
                                         <p className="card-text fw-bold text-center">{strType}
                                             {
-                                                strAlcohol == "yes" ? <small class="text-muted">: Alcoholic</small> : <small class="text-muted">: Not_Alcoholic</small>
+                                                strAlcohol == "yes" ? <small className="text-muted">: Alcoholic</small> : <small className="text-muted">: Not_Alcoholic</small>
                                             }
                                         </p>
                                     </div>
@@ -72,18 +73,6 @@ const HomeIngredientDetails = () => {
                             </div>
                         </div>
                     </div>
-
-                    {/*                 
-                <div className="col-md-12 d-flex justify-content-center row mx-1">
-                    <div className="col-md-12">
-                    </div>
-                    <div className="col-md-12 text-center mt-5">
-                        <h5 className="card-title mt-5 mb-2 fw-bold mt-5">Descriptions</h5>
-                        <p className="card-text text-justify mt-5">{strDescription}</p>
-                        <h6 className="card-title mt-4 mb-1 fw-bold mt-5"></h6>
-
-                    </div>
-                </div> */}
                     <div className="col-md-12">
                         <div className="row row-cols-1  row-cols-sm-2  row-cols-md-3 row-cols-lg-5  mt-5">
                             {
@@ -94,6 +83,8 @@ const HomeIngredientDetails = () => {
                 </div>
             }
         </div>
+        <Footer></Footer>
+        </>
     );
 };
 

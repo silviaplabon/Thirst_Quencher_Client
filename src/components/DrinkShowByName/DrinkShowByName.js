@@ -22,9 +22,9 @@ const DrinkShowByName = (props) => {
         }
     })
     const handleDelete = (drinkname,id) => {
-        {loggedInUser.email=="silviaplabon@gmail.com" ?
+        {loggedInUser.role=="Administrator" ?
 
-            fetch(`https://sleepy-plains-42535.herokuapp.com/deleteProduct/${drinkname}/${id}`, {
+            fetch(` https://sleepy-plains-42535.herokuapp.com/deleteProduct/${drinkname}/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -36,13 +36,17 @@ const DrinkShowByName = (props) => {
                 })
             
             :
-            alert("Admin disable this option for user. User Can only update a product.")
+            alert("Admin disable this option for user. ")
         }
 
         
     }
     const handleUpdate = (drinkname, id) => {
-        history.push(`/admin/${drinkname}/${id}`)
+        {
+            loggedInUser.role=="Administrator" ? history.push(`/admin/${drinkname}/${id}`):
+            alert("Admin disable this option for user.")
+        }
+       
 
     }
 

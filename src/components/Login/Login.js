@@ -108,7 +108,7 @@ const Login = () => {
     if (redirect === true) {
       setUser(res);
       setLoggedInUser(res);
-      // storeAuthToken()
+       storeAuthToken()
       history.replace(from)
     }
     else {
