@@ -16,17 +16,15 @@ const ReviewCollection = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     useEffect(() => {
         let url = `https://sleepy-plains-42535.herokuapp.com/testimonialsData`;
-        console.log(url)
+        // console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
-                console.log(data, "data")
+                // console.log(data, "data")
             })
     }, [])
-    console.log(reviews)
     let data = reviews?.sort(() => Math.random() - Math.random()).slice(0, 5)
-    console.log(data)
     return (
         <div className="container">
             <h4 className="mt-5 text-center text-white mb-3 p-2 " style={{ backgroundColor: '#2d524a' }}>Testimonials</h4>
@@ -147,10 +145,10 @@ const ReviewCollection = () => {
                         <div className="d-flex justify-content-end align-items-end">
                         
                            {
-                            loggedInUser.email && <Link to='/user/AddTestimonials' className=" mt-3 btn btnReview fw-bold">
-                                Add a Review</Link>
+                            loggedInUser.email ?  <Link to='/user/AddTestimonials' className=" mt-3 btn btnClass  btnReview fw-bold">
+                                Add a Review</Link>:<> <Link to='/' className=" mt-3 btn btnClass btnReview fw-bold">
+                                Add a Review</Link> </>
                         }
-
                     </div>
                       
                     

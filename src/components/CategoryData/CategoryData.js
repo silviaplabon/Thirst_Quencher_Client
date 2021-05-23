@@ -14,7 +14,7 @@ const CategoryData = () => {
     const [state, setState] = useState(false);
     useEffect(() => {
         let url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${name}`;
-        console.log(url)
+        // console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(data => {

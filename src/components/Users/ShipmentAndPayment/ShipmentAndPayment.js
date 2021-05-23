@@ -17,8 +17,9 @@ const customStyles = {
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        width: '50%',
-        paddingTop: '10%',
+        paddingTop: '0px',
+        marginTop:'0px',
+        width:'60%',
         transform: 'translate(-50%, -50%)'
     }
 };
@@ -104,7 +105,7 @@ const ShipmentAndPayment = ({ modalIsOpen, closeModal }) => {
     {
         service.map(order => {
             total = total + parseInt(order.price);
-            console.log(total)
+            // console.log(total)
         })
     }
     const deleteSingleOrder = () => {

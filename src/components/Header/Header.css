@@ -1,10 +1,12 @@
 .headerStyle {
     background-color: #2d524a!important;
     padding-bottom: 2%!important;
+    color:white;
 }
 .logStyle{
     padding:0px 8px!important;
 }
+
 
 .headerStyle a, .h2HeaderColor {
     color: white!important;

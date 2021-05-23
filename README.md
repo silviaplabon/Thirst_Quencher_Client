@@ -1,4 +1,4 @@
-#Fragrances Stack
+#Sip & Savor
 This Website developed by React,React-Router,React-hooks,HTML,CSS,Bootstrap
 
 Github Repository Client Site: [Sip & Savor](https://github.com/silviaplabon/Cocktail_collection_client).

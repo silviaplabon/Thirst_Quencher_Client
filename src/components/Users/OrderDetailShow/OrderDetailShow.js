@@ -1,30 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt, faPlus, faMinus, faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 import './OrderDetailShow.css'
 import { useHistory } from 'react-router';
-
+import { CartContext, DeleteContext, UserContext, ValueContext } from '../../../App';
+import OrderLength from '../../OrderLength/OrderLength';
 
 const OrderDetailShow = (props) => {
-    const { strDrink, price, quantity, strDrinkThumb, _id,idDrink } = props.order;
-    console.log(idDrink,strDrink)
-    console.log(price,quantity)
+    console.log(props)
+    
+    const [cart, setCart] = useContext(CartContext)
+    const [value,setValue]=useContext(ValueContext);
+    const [loggedInUser,setLoggedInUser]=useContext(UserContext);
+    const index=props.index;
+    // console.log(props)
+    // console.log(count)
+    const {_id } = props.order;
     const [drink, setDrink] = useState([]);
-    const orderQuantity=quantity;
-    const orderPrice=price;
-    const drinkprice=(orderPrice/orderQuantity);
+    const [order,setOrder]=useState([])
+    const [deleteUpdate,setDeleteUpdate]=useContext(DeleteContext);
+    
     const history=useHistory()
+    const [state,setState]=useState(true);
+    setDeleteUpdate(true)
+    useEffect(() => {
+        let url = `https://sleepy-plains-42535.herokuapp.com/SingleOrderDetailFinding/${_id}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setOrder(data);
+                setState(false)  ; 
+                // document.getElementsByClassName('deleteDisplayNone')[count].style.display="block";
+            })
+    }, [state==true])
+    const {strDrink,quantity,idDrink,price,strDrinkThumb}=order;
+    
     useEffect(() => {
         let url = `https://sleepy-plains-42535.herokuapp.com/orderProductFindingFromDB/${idDrink}/${strDrink}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 setDrink(data);
-                console.log(data)
-                alert(data)     
             })
-
-    }, [props.order])
+    }, [order.length>0])
 
     const handleAddOrderByPlus = (orderPrice, orderQuantity, drinkprice) => {
 
@@ -32,7 +50,7 @@ const OrderDetailShow = (props) => {
             quantity: (1 + orderQuantity), 
             price: (parseInt(orderQuantity)* parseInt(drinkprice))
         }
-        console.log(detailsUpdate);
+        // console.log(detailsUpdate);
         fetch(`https://sleepy-plains-42535.herokuapp.com/updateNewPriceAndQuantity/${_id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
@@ -40,7 +58,11 @@ const OrderDetailShow = (props) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data); alert('Inserted succesfully price and quantity');
+                console.log(data); 
+                alert(data)
+                setState(true);
+              
+                
             })
     }
     const handleDeleteOrder=(id)=>{
@@ -49,10 +71,28 @@ const OrderDetailShow = (props) => {
           })
               .then(res => res.json())
               .then(res => {
-                  if (res) {
-                      alert('deleted successfully')
-                      history.push('/user/OrderListShow/')
-                  }
+                document.getElementsByClassName('deleteDisplayNone')[index].style.display="none";
+                  
+                 console.log(index)
+                  if(res){
+                        fetch(' https://sleepy-plains-42535.herokuapp.com/SingleOrderUser/orderLength?email=' + loggedInUser?.email,
+                                            {
+                                                method: 'GET',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                }
+                                            }
+                                        )
+                                            .then(res => res.json())
+                                            .then(data => {
+                                                setCart(data);
+                                                setValue(true);
+                                            })
+                               setState(true);
+                    setDeleteUpdate(true);   
+                                        }      
+        
+                  
               })
     }
     const handleAddOrderByMinus = (orderPrice,orderQuantity, drinkprice) => {
@@ -67,16 +107,21 @@ const OrderDetailShow = (props) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data); alert('Order placed successfully');
+                    console.log(data); 
+                    setState(true)
+                   
                 })
         
     }
+    const orderQuantity=quantity;
+    const orderPrice=price;
+    const drinkprice=(orderPrice/orderQuantity);
 
 
 
     return (
         <>
-            <ul className="list-group ulStyle ">
+            <ul className="list-group ulStyle deleteDisplayNone">
                 <li className="list-group-item  liStyle">
                     <span className=" listStyle imageOrderStyle"><img src={strDrinkThumb} className="img-fluid w-50 h-50" /></span>
                     <span className=" listStyle  nameOrderStyle fw-bold">{strDrink}</span>

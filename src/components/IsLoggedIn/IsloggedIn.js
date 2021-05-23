@@ -7,7 +7,7 @@ const IsloggedIn = () => {
     const token=localStorage.getItem('token');
     const decodedToken = jwt_decode(token);
     const { name, email, picture } = decodedToken;
-    console.log(decodedToken)
+    // console.log(decodedToken)
     const currentTime = new Date().getTime() / 1500;
 
     const signedInUser = {

@@ -7,7 +7,7 @@ const NonAlcoholic = () => {
     const [drinks,setDrinks] = useState([]);
     useEffect(() => {
         let url = ` https://sleepy-plains-42535.herokuapp.com/filter/NonAlcoholic`;
-        console.log(url)
+        // console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(data => {setDrinks(data);})

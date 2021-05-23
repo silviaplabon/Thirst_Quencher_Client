@@ -30,7 +30,7 @@ const AllDrinksShowList = () => {
                     </div>
                 </div>
                 :<>
-            <h1>{drinks.length}</h1>
+          
             <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 ">
             {
                 drinks.map(drink=><DrinkFromDB drink={drink}></DrinkFromDB>)  

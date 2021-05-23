@@ -23,7 +23,6 @@ const AdminMaker = () => {
     })
       .then(res => alert('Admin Entered Successfully'))
   };
-console.log(loggedInUser)
 
 
   return (

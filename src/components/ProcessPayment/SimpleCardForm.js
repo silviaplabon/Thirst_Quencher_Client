@@ -20,7 +20,7 @@ const SimpleCardForm = ({handlePayment}) => {
       card: cardElement,
     });
     if (error) {
-      console.log('[error]', error);
+      // console.log('[error]', error);
       setPaymentSuccess(null);
       setPaymentError(error.message)
     } else {

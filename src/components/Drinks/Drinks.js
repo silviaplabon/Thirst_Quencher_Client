@@ -13,12 +13,12 @@ const Drinks = () => {
     const [spinner,setSpinner]=useState(true)
     useEffect(() => {
         let url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${name}`;
-        console.log(url)
+        // console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(data => {setDrinks(data.drinks); setSpinner(false)})
     }, [])
-    console.log(drinks)
+    // console.log(drinks)
     return (
         <div className="containerColor mt-0">
             { spinner ?

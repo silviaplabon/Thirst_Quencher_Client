@@ -4,7 +4,7 @@ import GlassCategoryListShow from '../GlassCategoryListShow/GlassCategoryListSho
 
 import './GlassCategorySearch.css'
 const GlassCategorySearch = (props) => {
-    console.log(props, "glasscategorysearch")
+    // console.log(props, "glasscategorysearch")
     const state = props.state;
     const history = useHistory();
     const [glasses, setGlasses] = useState([]);
@@ -20,7 +20,7 @@ const GlassCategorySearch = (props) => {
 
    
 
-    console.log(state, "sidkedkecrcrf")
+    // console.log(state, "sidkedkecrcrf")
     useEffect(() => {
         {
             state == 3 && 

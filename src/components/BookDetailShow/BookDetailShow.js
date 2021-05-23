@@ -3,7 +3,7 @@ import './BookDetailShow.css'
 
 const BookDetailShow = (props) => {
     const {strDrink,price,quantity}=props.detail;
-  console.log(props)
+//   console.log(props)
     return (
         <>
             <ul className="list-group ulStyle ">

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../App';
 
 const DrinkFromDB = (props) => {
-  console.log(props);
+  // console.log(props);
   const { _id, strDrink, strDrinkThumb, price,strAlcoholic,strVideo } = props.drink;
   const [loggedInUser,setLoggedInUser]=useContext(UserContext)
   const handleDelete = (id) => {

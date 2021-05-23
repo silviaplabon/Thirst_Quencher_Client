@@ -11,7 +11,7 @@ const GlassData = () => {
     const [glass, setGlass] = useState([])
     useEffect(() => {
         let url = ` https://sleepy-plains-42535.herokuapp.com/GlassDataByName/${name}`;
-        console.log(url)
+        // console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -19,7 +19,7 @@ const GlassData = () => {
                     console.log(data,"data") 
             })
     }, [name])
-    console.log(drinks)
+    // console.log(drinks)
     return (
         <div className="">
             {

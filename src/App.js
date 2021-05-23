@@ -35,25 +35,44 @@ import OrderList from './components/Users/OrderList/OrderList';
 import ShipmentAndPayment from './components/Users/ShipmentAndPayment/ShipmentAndPayment';
 import ShipmentDetails from './components/ShipmentDetails/ShipmentDetails';
 import AddTestimonial from './components/Users/AddTestimonial/AddTestimonial';
+import OrderLength from './components/OrderLength/OrderLength';
+
 
 
 export const UserContext = createContext();
 export const CartContext = createContext();
+export const DeleteContext = createContext();
+export const ValueContext = createContext();
 function App() {
   const [loggedInUser, setloggedInUser] = useState({});
   const [cart,setCart]=useState([]);
+  const [deleteUpdate,setDeleteUpdate]=useState(false);
+  const [value,setValue]=useState(false);
   const token=localStorage.getItem('token');
+  
+
   return (
     <UserContext.Provider value={[loggedInUser, setloggedInUser]}>
-      <CartContext.Provider value={[cart,setCart]}>
 
+      <CartContext.Provider value={[cart,setCart]}>
+      <DeleteContext.Provider value={[deleteUpdate,setDeleteUpdate]}>
+      <ValueContext.Provider value={[value,setValue]}>
       <Router>
         {
           token &&  <IsloggedIn></IsloggedIn>
         }
+        {
+          (token && loggedInUser.email||!cart)&&<OrderLength></OrderLength>
+        }
+         {
+          (token && loggedInUser.email&&cart)&&<OrderLength></OrderLength>
+        }
 
+        
         <Header></Header>
+      
         <Switch>
+
           <Route exact path="/">
             <Home></Home>
           </Route>
@@ -127,6 +146,8 @@ function App() {
           </PrivateRoute> 
         </Switch>
       </Router>
+      </ValueContext.Provider>
+      </DeleteContext.Provider>
       </CartContext.Provider>
     </UserContext.Provider>
   );

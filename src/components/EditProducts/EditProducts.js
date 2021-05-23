@@ -26,7 +26,7 @@ const EditProducts = () => {
     }
 
     const onSubmit = data => {
-        console.log(data, "onSUbmit value");
+        // console.log(data, "onSUbmit value");
         const productData = {
             name: data.name,
             imageURL: imageURL,
@@ -44,7 +44,7 @@ const EditProducts = () => {
             })
     }
     const handleImageUpload = event => {
-        console.log(event.target.files[0])
+        // console.log(event.target.files[0])
         const imageData = new FormData();
         imageData.set('key', 'b9c8c292069e10110cf7af6edcbd15eb');
         imageData.append('image', event.target.files[0]);

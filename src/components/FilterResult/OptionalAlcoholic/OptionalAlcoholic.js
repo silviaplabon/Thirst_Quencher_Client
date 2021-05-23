@@ -7,7 +7,7 @@ const OptionalAlcoholic = () => {
     const [drinks,setDrinks] = useState([]);
     useEffect(() => {
         let url = ` https://sleepy-plains-42535.herokuapp.com/filter/OptionalAlcoholic`;
-        console.log(url)
+        // console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(data => {setDrinks(data);})

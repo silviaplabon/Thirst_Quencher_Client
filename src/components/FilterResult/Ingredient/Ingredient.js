@@ -7,12 +7,11 @@ const Ingredient = () => {
     const [ingredients,setIngredients] = useState([]);
     useEffect(() => {
         let url = ` https://sleepy-plains-42535.herokuapp.com/ingredientsListCollection`;
-        console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(data => {setIngredients(data);})
     }, [])
-    console.log(ingredients)
+    // console.log(ingredients)
    
     return (
         <div className="container">

@@ -10,7 +10,7 @@ const IngredientData = () => {
     const [drinks, setDrinks] = useState([])
     useEffect(() => {
         let url = ` https://sleepy-plains-42535.herokuapp.com/IngredientDrinksByName/${name}`;
-        console.log(url)
+        // console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(data => {

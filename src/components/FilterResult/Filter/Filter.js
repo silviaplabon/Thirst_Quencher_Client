@@ -36,7 +36,7 @@ const Filter = () => {
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  g-4 mx-5 mt-5">
                 <div className="col" onClick={()=>handleAlcoholic()}>
                     <div className="card h-100">   
-                       <div className="card-body cardBody h-75">
+                       <div className="card-body cardBodys h-75 w-100">
                         <img src={alcoholicimg} className="card-img-top h-100 w-100" alt="..." />
                         </div>
                         <div className="card-footer">
@@ -46,8 +46,8 @@ const Filter = () => {
                 </div>
                 <div className="col" onClick={()=>handleNonAlcoholic()}>
                     <div className="card h-100">
-                         <div className="card-body cardBody h-75">
-                            <img src={nonalcoholicimg} className="card-img-top h-100 w-100 " alt="" />
+                         <div className="card-body cardBodys h-75">
+                            <img src={nonalcoholicimg} className=" h-100 w-100 " alt="" />
                         </div>
                         <div className="card-footer">
                             <h6 className=" text-center fw-bold">Non Alcoholic</h6>
@@ -56,8 +56,8 @@ const Filter = () => {
                 </div>
                 <div className="col" onClick={()=>handleOptionalAlcoholic()}>
                     <div className="card h-100">
-                         <div className="card-body cardBody h-75">
-                            <img src={optionalalcoholicimg} className="card-img-top h-100 w-100 " alt="" />
+                         <div className="card-body cardBodys h-75 w-100 m-0">
+                            <img src={optionalalcoholicimg} className="h-100 w-100 m-0 " alt="" />
                         </div>
                         <div className="card-footer">
                             <h6 className=" text-center fw-bold">Optional Alcoholic</h6>
@@ -66,7 +66,7 @@ const Filter = () => {
                 </div>
                 <div className="col" onClick={()=>handleCategory()}>
                     <div className="card h-100">
-                    <div className="card-body cardBody h-75">
+                    <div className="card-body cardBodys h-75">
                         <img src={categoryimg} className="card-img-top h-100 w-100" alt="..." />
                     </div>
                     <div className="card-footer">
@@ -76,7 +76,7 @@ const Filter = () => {
                 </div>
                 <div className="col" onClick={()=>handleGlass()}>
                     <div className="card h-100">
-                    <div className="card-body cardBody h-75">
+                    <div className="card-body cardBodys h-75">
                         <img src={glassimg} className="card-img-top h-100 w-100" alt="..." />
                         </div>
                         <div className="card-footer">
@@ -86,7 +86,7 @@ const Filter = () => {
                 </div>
                 <div className="col" onClick={()=>handleIngredient()}>
                     <div className="card h-100">
-                    <div className="card-body cardBody h-75">
+                    <div className="card-body cardBodys h-75">
                         <img src={ingredient} className="card-img-top h-100 w-100" alt="..." />
                     </div>
                     <div className="card-footer">

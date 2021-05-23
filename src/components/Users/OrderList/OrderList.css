@@ -18,13 +18,13 @@
     background-color: #2d524a!important;
 }
 .nameOrderStyle{
-    grid-column: 3 / span 2!important;
+    grid-column: 3 / span 3!important;
 }
 .quantityOrderStyle{
-    grid-column: 5/ span 3!important;
+    grid-column: 6/ span 3!important;
 }
 .priceOrderStyle{
-    grid-column:8/ span 2!important;
+    grid-column:9/ span 1!important;
 }
 @media only screen and (min-device-width: 200px) and (max-device-width:500px) {
     .listStyle{

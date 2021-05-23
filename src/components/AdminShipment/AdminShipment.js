@@ -23,7 +23,7 @@ const AdminShipment = () => {
                 }
             })
     }, [loggedInUser.email])
-    console.log(order)
+    // console.log(order)
 
 
     return (
@@ -36,7 +36,7 @@ const AdminShipment = () => {
                     <span className="listStyle ms-2 priceShipStyle text-center">Price</span>
                       </li>
                     {
-                        order.map(book => <AdminShipmentShow book={book}></AdminShipmentShow>)
+                        order.map((book,index) => <AdminShipmentShow book={book} index={index}></AdminShipmentShow>)
                     }
                    
             </ul>
