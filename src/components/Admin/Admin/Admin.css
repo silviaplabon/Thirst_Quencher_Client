@@ -1,0 +1,20 @@
+.containerAdmin{
+    background-color:#ffffff;
+    padding-bottom:20%!important;
+}
+.adminColStyle{
+    border-radius:0.80rem!important;  
+}
+.listAdminStyle{
+    background-color: #D2AA5C!important;  
+
+}
+.hoverStyleAdmin:hover{
+    background-color: #27211D!important;
+}
+
+@media only screen and (min-device-width: 200px) and (max-device-width:575px) {
+  .adminContainerMargin{
+      padding:0px;
+  }
+}

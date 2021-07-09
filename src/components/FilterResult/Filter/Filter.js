@@ -1,102 +1,31 @@
 import React from 'react';
-import glassimg from '../../../images/glass.jfif';
-import alcoholicimg from '../../../images/alcoholic.jpg';
-import nonalcoholicimg from '../../../images/nonalcoholic.jpg';
-import categoryimg from '../../../images/category.jfif';
-import optionalalcoholicimg from '../../../images/optional Alcohol.jpg';
-import ingredient from '../../../images/ingredient.jpg';
 import { useHistory } from 'react-router';
 import './Filter.css'
-import Footer from '../../Footer/Footer';
+import Footer from '../../Shared/Footer/Footer'
+import FilterDataShow from '../FilterDataShow/FilterDataShow';
 
 const Filter = () => {
-    const history=useHistory();
-    const handleAlcoholic=()=>{
-        history.push('/auth/filter/alcoholic')
-    }
-    const handleNonAlcoholic=()=>{
-        history.push('/auth/filter/nonalcoholic')
-    }
-    const handleOptionalAlcoholic=()=>{
-        history.push('/auth/filter/optionalalcoholic')
-    }
-    const handleGlass=()=>{
-        history.push('/auth/filter/glass')
-    }
-    const handleCategory=()=>{
-        history.push('/auth/filter/category')
-    }
-    const handleIngredient=()=>{
-        history.push('/auth/filter/ingredient')
-    }
+    const history = useHistory();
+
+    const filterData = [
+        { name: 'Alcoholic', image: 'https://i.ibb.co/8BSm6yg/filteralcoholic.jpg' },
+        { name: 'Non Alcoholic', image: 'https://i.ibb.co/NLZGG3T/Non-Alcoholic.jpg' },
+        { name: 'Optional Alcoholic', image: 'https://i.ibb.co/kQczQJb/optional-alcohol.jpg' },
+        { name: 'Ingredient', image: 'https://i.ibb.co/YpvTbJQ/ingredient.jpg' },
+        { name: 'Glass', image: 'https://i.ibb.co/bJMCXP7/glass.jpg' },
+        { name: 'Category', image: 'https://i.ibb.co/cKBT3jp/category.jpg' }
+    ]
+
 
     return (
-        <>
-        <div className="container">
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  g-4 mx-5 mt-5">
-                <div className="col" onClick={()=>handleAlcoholic()}>
-                    <div className="card h-100">   
-                       <div className="card-body cardBodys h-75 w-100">
-                        <img src={alcoholicimg} className="card-img-top h-100 w-100" alt="..." />
-                        </div>
-                        <div className="card-footer">
-                            <h6 className=" text-center fw-bold">Alcoholic</h6>
-                        </div>
-                    </div>
-                </div>
-                <div className="col" onClick={()=>handleNonAlcoholic()}>
-                    <div className="card h-100">
-                         <div className="card-body cardBodys h-75">
-                            <img src={nonalcoholicimg} className=" h-100 w-100 " alt="" />
-                        </div>
-                        <div className="card-footer">
-                            <h6 className=" text-center fw-bold">Non Alcoholic</h6>
-                        </div>
-                    </div>
-                </div>
-                <div className="col" onClick={()=>handleOptionalAlcoholic()}>
-                    <div className="card h-100">
-                         <div className="card-body cardBodys h-75 w-100 m-0">
-                            <img src={optionalalcoholicimg} className="h-100 w-100 m-0 " alt="" />
-                        </div>
-                        <div className="card-footer">
-                            <h6 className=" text-center fw-bold">Optional Alcoholic</h6>
-                        </div>
-                    </div>
-                </div>
-                <div className="col" onClick={()=>handleCategory()}>
-                    <div className="card h-100">
-                    <div className="card-body cardBodys h-75">
-                        <img src={categoryimg} className="card-img-top h-100 w-100" alt="..." />
-                    </div>
-                    <div className="card-footer">
-                            <h6 className=" text-center fw-bold">Category</h6>
-                        </div>
-                    </div>
-                </div>
-                <div className="col" onClick={()=>handleGlass()}>
-                    <div className="card h-100">
-                    <div className="card-body cardBodys h-75">
-                        <img src={glassimg} className="card-img-top h-100 w-100" alt="..." />
-                        </div>
-                        <div className="card-footer">
-                            <h6 className="text-center fw-bold">Glass</h6>
-                        </div>
-                    </div>
-                </div>
-                <div className="col" onClick={()=>handleIngredient()}>
-                    <div className="card h-100">
-                    <div className="card-body cardBodys h-75">
-                        <img src={ingredient} className="card-img-top h-100 w-100" alt="..." />
-                    </div>
-                    <div className="card-footer">
-                            <h6 className=" text-center fw-bold">Ingredient</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>   </div>
-            <Footer></Footer>
-     </>
+        <div className="my-5" id="filterSectionLink">
+            <h1 className="text-center h1Gallery mt-5 ">Our Gallery</h1>
+            <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3">
+                {
+                    filterData.map(filter => <FilterDataShow filter={filter}></FilterDataShow>)
+                }
+            </div>
+        </div>
     );
 };
 

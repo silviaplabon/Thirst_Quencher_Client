@@ -1,0 +1,15 @@
+.formStyle{
+    background-color: #27211D!important;
+    border-radius:0.70rem!important;
+    color:white!important;
+    font-weight:bold!important;
+}
+.btnSave{
+    background-image: linear-gradient(to left, #f01737,#27211D)!important;
+    border-radius: 0.70rem!important;
+}
+
+.btnSave:hover {
+    background-position: right;
+   
+}

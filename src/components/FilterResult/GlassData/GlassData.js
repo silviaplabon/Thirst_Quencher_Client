@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
-import DrinkShowById from '../../DrinkShowById/DrinkShowById';
+import DrinkShowById from '../../Home/DrinkShowById/DrinkShowById';
 import GlassCategorySearch from '../GlassCategorySearch/GlassCategorySearch';
 const GlassData = () => {
     const [drinks, setDrinks] = useState([]);

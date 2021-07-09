@@ -39,8 +39,8 @@ const AddMessage = () => {
                     <div className="row d-flex" >
                         <div className="col-md-12 mb-3">
                             <h5>Contact US</h5>
-                            <input name="email" id="servicename" className="form-control " style={{ backgroundColor: '#333',color:'white' }} placeholder="Your email" defaultValue="" ref={register} />
-                            <textarea name="description" className="form-control text-white" style={{ backgroundColor: '#333' }} placeholder="description" defaultValue="" ref={register} />
+                            <input name="email" id="servicename" className="form-control " style={{ backgroundColor: '#27211D',color:'white' }} placeholder="Your email" defaultValue="" ref={register} />
+                            <textarea name="description" className="form-control text-white" style={{ backgroundColor: '#27211D' }} placeholder="description" defaultValue="" ref={register} />
                             {/* {errors.exampleRequired && <span>This field is required</span>} */}
                             <div className="d-flex justify-content-end align-items-end">
                                 <input type="submit" className="mt-2 btn sendBtn" value="Send" />

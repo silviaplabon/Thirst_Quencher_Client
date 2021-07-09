@@ -1,0 +1,44 @@
+.navbarAddProduct a{
+    color:white!important;
+    text-decoration:none;
+}
+
+.liAdminShipment{
+    display:grid!important;
+    grid-template-columns:repeat(9,1fr)!important;
+    padding:0px;
+}
+
+.liAdminShipment{
+    background-color:white!important;
+}
+
+.imageAdminShipment{
+    grid-column: 1 / span 3;
+}
+.imageStyleShip {
+    height:40px!important;
+    border-radius:0.85rem!important;
+}
+.nameAdminShipment{
+    grid-column: 4/ span 4!important;
+}
+.quantityAdminShipment{
+    grid-column: 8/ span 1!important;
+}
+.priceAdminShipment{
+    grid-column:9/ span 1!important;
+}
+.liAdminShipment{
+    height:3rem!important;
+}
+
+@media only screen and (min-device-width: 200px) and (max-device-width:500px) {
+    .listAdminShipment{
+        font-size:14px!important;
+        margin-left:4px!important;
+    }
+    .formSection{
+        padding:0.50rem!important;
+    }
+}

@@ -3,9 +3,9 @@
     text-decoration:none;
 }
 
-.liStyle{
+.liStyleOrder{
     display:grid;
-    grid-template-columns:repeat(10,1fr);
+    grid-template-columns:repeat(10,1fr)!important
 }
 .imageOrderStyle{
     grid-column: 1 / span 2!important;
@@ -15,7 +15,7 @@
     border-radius:0.85rem!important;
 }
 .liHeaderStyle{
-    background-color: #2d524a!important;
+    background-color: #27211D!important;
 }
 .nameOrderStyle{
     grid-column: 3 / span 3!important;
@@ -27,7 +27,7 @@
     grid-column:9/ span 1!important;
 }
 @media only screen and (min-device-width: 200px) and (max-device-width:500px) {
-    .listStyle{
+    .listStyleOrder{
         font-size:12px!important;
         margin-left:4px!important;
     }

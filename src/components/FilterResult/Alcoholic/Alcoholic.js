@@ -1,7 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import DrinkShowById from '../../DrinkShowById/DrinkShowById';
+import DrinkShowById from '../../Home/DrinkShowById/DrinkShowById';
+
 
 const Alcoholic = () => {
     const [drinks,setDrinks] = useState([]);

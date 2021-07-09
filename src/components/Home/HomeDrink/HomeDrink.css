@@ -1,0 +1,66 @@
+.containerColor {
+    background-color: white;
+    /* #FF2400 */
+    margin: 0!important;
+    padding: 0!important;
+}
+
+.bgHomeStyle, .cardBodyStyle {
+    background-color: #27211D!important;
+    border-radius: 0 0 0.70rem 0.70rem!important;
+    color: white!important;
+}
+
+.spinnerColor {
+    color: #27211D!important;
+    font-size: 35px!important;
+}
+
+.spinnerClass {
+    padding-top: 15%!important;
+    padding-bottom: 15%!important;
+}
+
+.homeH6Color {
+    cursor: pointer;
+}
+
+#homeH6ColorActive {
+    background-color: '#D2AA5C'!important;
+}
+
+#ingredientsButtonActive {
+    background-color: '#D2AA5C'!important;
+}
+
+.homeDrinkTitle {
+    font-family: 'Philosopher', sans-serif;
+}
+
+@media only screen and (min-device-width:302px) and (max-device-width:432px) {
+    .h6HomeCursor {
+        padding: 0px;
+    }
+    .homeH6Color {
+        padding: 3px;
+        font-size: 12px;
+    }
+    .ingredientsButton {
+        padding: 1.5px;
+        font-size: 11px;
+    }
+}
+
+@media only screen and (min-device-width:0px) and (max-device-width:302px) {
+    .h6HomeCursor {
+        padding: 0px;
+    }
+    .homeH6Color {
+        padding: 1.5px;
+        font-size: 11px;
+    }
+    .ingredientsButton {
+        padding: 1.5px;
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,16 @@
+.headerMainContainer{
+    background-image:url(https://i.ibb.co/82QYXCy/headermain2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height:500px;
+}
+
+/* https://i.ibb.co/r28mfHC/Cocktail-Background-Image.jpg */
+/* https://i.ibb.co/XtR3G49/slider3-bg-new-2000x.jpg */
+.h2HeaderMainTitle{
+    
+        font-family: 'Philosopher', sans-serif;
+}
+.h6HeaderMainFont{
+    font-family: 'Bona Nova', serif;
+}

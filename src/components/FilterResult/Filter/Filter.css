@@ -1,6 +1,45 @@
-.cardStyle{
-    height:85%!important;
-}
+
 .cardBodys{
     padding:0px!important;
+}
+
+
+
+
+.menu{
+    width:30rem;
+    left: 50% !important;    
+    transform: translate(-50%, -12%) !important;
+
+}
+.ulStyle{
+    display:grid!important;
+    grid-template-columns: repeat(2,1fr)!important;
+}
+.liButton{
+    list-style-type:disc!important;
+}
+@media only screen and (min-device-width: 502px) and (max-device-width:1200px) {
+    .menu{
+        width:90%!important;
+        left:0%;
+        transform: translate(-40%, -10%) !important;
+    
+    } 
+}
+@media only screen and (min-device-width: 300px) and (max-device-width:502px) {
+    .menu{
+        width:100%;
+        
+        
+        transform: translate(-50%, -10%) !important;
+    
+    }
+}
+
+
+
+
+.h1Gallery{
+    font-family: 'Philosopher', sans-serif;
 }

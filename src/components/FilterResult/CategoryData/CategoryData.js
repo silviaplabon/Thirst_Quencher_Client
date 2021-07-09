@@ -2,9 +2,9 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
-import Category from '../Category/Category';
-import DrinkShowById from '../../DrinkShowById/DrinkShowById';
-import GlassCategorySearch from '../GlassCategorySearch/GlassCategorySearch';
+import Category from '../Category/Category'
+import DrinkShowById from '../../Home/DrinkShowById/DrinkShowById';
+import GlassCategorySearch from '../GlassCategorySearch/GlassCategorySearch'
 
 
 const CategoryData = () => {

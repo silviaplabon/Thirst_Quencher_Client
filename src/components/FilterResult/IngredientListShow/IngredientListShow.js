@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
-import DrinkShowById from '../../DrinkShowById/DrinkShowById';
+import DrinkShowById from '../../Home/DrinkShowById/DrinkShowById'
 
 const IngredientListShow = (props) => {
   const history=useHistory();

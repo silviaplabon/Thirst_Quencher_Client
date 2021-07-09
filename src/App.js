@@ -8,34 +8,43 @@ import {
   Link
 } from "react-router-dom";
 
-import Home from './components/Home/Home';
-import Login from './components/Login/Login';
+
+import HomeDrink from  './components/Home/HomeDrink/HomeDrink'
 import { createContext, useState } from 'react';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Drinks from './components/Drinks/Drinks';
-import AllDrinksShowList from './components/AllDrinksShowList/AllDrinksShowList'
-import Admin from './components/Admin/Admin';
-import Header from './components/Header/Header';
-import HomeDrinkDetails from './components/HomeDrinkDetails/HomeDrinkDetails';
-import HomeIngredientDetails from './components/HomeIngredientDetails/HomeIngredientDetails';
-import AddProducts from './components/AddProducts/AddProducts';
-import Filter from  './components/FilterResult/Filter/Filter';
-import Alcoholic from './components/FilterResult/Alcoholic/Alcoholic';
+
+import HomeDrinkDetails from './components/Home/HomeDrinkDetails/HomeDrinkDetails'
+import HomeIngredientDetails from './components/Home/HomeIngredientDetails/HomeIngredientDetails';
+import Filter from './components/FilterResult/Filter/Filter'
+import Alcoholic from './components/FilterResult/Alcoholic/Alcoholic'
 import NonAlcoholic from './components/FilterResult/NonAlcoholic/NonAlcoholic';
 import OptionalAlcoholic from './components/FilterResult/OptionalAlcoholic/OptionalAlcoholic';
 import GlassData from './components/FilterResult/GlassData/GlassData';
 import CategoryData from './components/FilterResult/CategoryData/CategoryData';
 import Glass from './components/FilterResult/Glass/Glass';
 import Category from './components/FilterResult/Category/Category';
-import EditProducts from './components/EditProducts/EditProducts';
-import Ingredient from './components/FilterResult/Ingredient/Ingredient';
+
+import EditProducts from './components/Admin/EditProducts/EditProducts';
+import Ingredient from './components/FilterResult/Ingredient/Ingredient'
 import IngredientData from './components/FilterResult/IngredientData/IngredientData';
-import IsloggedIn from './components/IsLoggedIn/IsloggedIn';
-import OrderList from './components/Users/OrderList/OrderList';
+import OrderList from './components/Users/OrderList/OrderList'
 import ShipmentAndPayment from './components/Users/ShipmentAndPayment/ShipmentAndPayment';
-import ShipmentDetails from './components/ShipmentDetails/ShipmentDetails';
+import ShipmentDetails from './components/Users/ShipmentDetails/ShipmentDetails';
 import AddTestimonial from './components/Users/AddTestimonial/AddTestimonial';
-import OrderLength from './components/OrderLength/OrderLength';
+import OrderLength from './components/Shared/OrderLength/OrderLength';
+
+// login Import 
+import IsloggedIn from './components/Shared/Login/IsLoggedIn/IsloggedIn'
+import Login from './components/Shared/Login/Login/Login';
+import PrivateRoute from './components/Shared/Login/PrivateRoute/PrivateRoute';
+
+import Drinks from './components/Home/Drinks/Drinks';
+import AllDrinksShowList from './components/Admin/AllDrinksShowList/AllDrinksShowList'
+import Admin from './components/Admin/Admin/Admin'
+import AddProducts from './components/Admin/AddProducts/AddProducts'
+import Header from './components/Shared/Header/Header';
+import Footer from './components/Shared/Footer/Footer';
+import Home from './components/Home/Home/Home';
+
 
 
 
@@ -53,7 +62,6 @@ function App() {
 
   return (
     <UserContext.Provider value={[loggedInUser, setloggedInUser]}>
-
       <CartContext.Provider value={[cart,setCart]}>
       <DeleteContext.Provider value={[deleteUpdate,setDeleteUpdate]}>
       <ValueContext.Provider value={[value,setValue]}>
@@ -67,10 +75,7 @@ function App() {
          {
           (token && loggedInUser.email&&cart)&&<OrderLength></OrderLength>
         }
-
-        
         <Header></Header>
-      
         <Switch>
 
           <Route exact path="/">
@@ -79,6 +84,7 @@ function App() {
           <PrivateRoute exact path="/:name">
             <Drinks></Drinks>
           </PrivateRoute>
+          
           <PrivateRoute exact path="/user/ShipmentDetail">
           <ShipmentDetails></ShipmentDetails>
           </PrivateRoute>
@@ -136,7 +142,7 @@ function App() {
           <PrivateRoute exact path="/ingredientsByName/:name">
             <HomeIngredientDetails />
           </PrivateRoute>
-       
+
           <PrivateRoute exact path="/user/OrderListShow">
             <OrderList></OrderList>
           </PrivateRoute>

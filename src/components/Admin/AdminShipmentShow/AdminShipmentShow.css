@@ -1,0 +1,37 @@
+
+
+.liStyleAdmin{
+    display:grid!important;
+    grid-template-columns:repeat(10,1fr)!important;
+}
+.liAdminStyle{
+    background-image: linear-gradient(-90deg,red,#333);
+}
+
+.fontShip{
+    font-size:14px!important;
+}
+
+.emailAdminStyle{
+    grid-column: 1/ span 3!important;
+}
+.dateAdminStyle{
+    grid-column: 4/ span 3!important;
+}
+.statusAdminStyle{
+    grid-column:7/ span 4 important;
+}
+
+
+@media only screen and (min-device-width: 300px) and (max-device-width:575px) {
+    .fontShip{
+        font-size:11px!important;
+    }
+}
+
+@media only screen and (min-device-width: 200px) and (max-device-width:300px) {
+    .fontShip{
+        font-size:10px!important;
+    }
+}
+

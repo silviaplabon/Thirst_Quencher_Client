@@ -1,0 +1,18 @@
+.headerStyle {
+    background-color: #000000!important;
+    padding-bottom: 3%!important;
+    color:white!important;
+    cursor:pointer;
+}
+.logStyle{
+    padding:0px 8px!important;
+}
+
+
+
+.headerStyle a, .h2HeaderColor {
+    color: white!important;
+}
+.lengthStyle{
+    text-decoration: none!important;
+}
