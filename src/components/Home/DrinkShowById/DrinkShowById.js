@@ -17,7 +17,7 @@ const DrinkShowById = (props) => {
     const [drinkExist, setDrinkExist] = useState(false);
     
     useEffect(() => {
-        fetch(`http://localhost:4200/drinkIsExist/${idDrink}/${strDrink}`)
+        fetch(`https://sleepy-plains-42535.herokuapp.com//drinkIsExist/${idDrink}/${strDrink}`)
             .then(res => res.json())
             .then(data => {
                 if (data != false) {
@@ -31,7 +31,7 @@ const DrinkShowById = (props) => {
 
         //
         const saveToDatabase=(drinkdata)=>{
-            fetch(`http://localhost:4200/addDrinksCollection`, {
+            fetch(`https://sleepy-plains-42535.herokuapp.com//addDrinksCollection`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

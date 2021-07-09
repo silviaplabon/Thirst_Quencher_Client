@@ -22,7 +22,7 @@ const HomeIngredientDetails = () => {
 const [loggedInUser,setLoggedInUser]=useContext(UserContext);
     useEffect(() => {
         let url;
-        let url1 = ` http://localhost:4200/ingredientByName/${nameSmall}`;
+        let url1 = ` https://sleepy-plains-42535.herokuapp.com//ingredientByName/${nameSmall}`;
         let url2 = ` https://sleepy-plains-42535.herokuapp.com/ingredientById/${id}`;
         {
             name ? url = url1 : url = url2
@@ -48,7 +48,7 @@ const [loggedInUser,setLoggedInUser]=useContext(UserContext);
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.ingredients[0])
-                fetch(`http://localhost:4200/filter/ingredientsList`, {
+                fetch(`https://sleepy-plains-42535.herokuapp.com//filter/ingredientsList`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

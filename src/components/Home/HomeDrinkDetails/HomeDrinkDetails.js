@@ -32,7 +32,7 @@ React.useEffect(() => {       window.scrollTo(0, 0);     }, [name||id]);
     useEffect(() => {
         let url;
         let url1 = ` https://sleepy-plains-42535.herokuapp.com/drinkDetailByName/${name}`;
-        let url2 = ` http://localhost:4200/drinkDetailById/${id}`;
+        let url2 = ` https://sleepy-plains-42535.herokuapp.com//drinkDetailById/${id}`;
         {
             name ? url = url1 : url = url2
         }
