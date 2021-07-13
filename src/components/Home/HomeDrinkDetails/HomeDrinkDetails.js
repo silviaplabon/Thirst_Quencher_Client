@@ -11,12 +11,13 @@ import { LaptopWindowsSharp, NightsStay, SettingsInputAntennaTwoTone } from '@ma
 import OrderIsExist from '../../Shared/OrderIsExist/OrderIsExist'
 import Footer from '../../Shared/Footer/Footer';
 import OrderDetailShow from '../../Users/OrderDetailShow/OrderDetailShow';
+import Header from '../../Shared/Header/Header';
 
 
 const HomeDetailDrink = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [cart, setCart] = useContext(CartContext)
-    const [value,setValue]=useContext(ValueContext);
+    const [value, setValue] = useContext(ValueContext);
     const { name } = useParams();
     const { id } = useParams();
     const history = useHistory();
@@ -25,26 +26,28 @@ const HomeDetailDrink = () => {
     const [orderData, setOrderData] = useState([])
     const [state, setState] = useState(null);
     const [orderUpdate, setOrderUpdate] = useState(false);
-//checking drink detail
-React.useEffect(() => {       window.scrollTo(0, 0);     }, [name||id]);
 
+    useEffect(() => { window.scrollTo(0, 0); }, [name || id]);
+    const similarDrinks = drinks.slice(0, 12);
 
+    
     useEffect(() => {
         let url;
         let url1 = ` https://sleepy-plains-42535.herokuapp.com/drinkDetailByName/${name}`;
-        let url2 = ` https://sleepy-plains-42535.herokuapp.com//drinkDetailById/${id}`;
+        let url2 = ` https://sleepy-plains-42535.herokuapp.com/drinkDetailById/${id}`;
         {
             name ? url = url1 : url = url2
         }
         // console.log(url,"url")
         fetch(url)
             .then(res => res.json())
-            .then(data => { setDetail(data); ;
-                })
+            .then(data => {
+                setDetail(data);;
+            })
     }, [name || id])
-   
 
-//checking similar product
+
+    //checking similar product
     useEffect(() => {
         let url = ` https://sleepy-plains-42535.herokuapp.com/similarDrink/${detail?.strGlass}/${detail?.strCategory}/${detail?.strAlcoholic}`;
         // console.log(url)
@@ -67,8 +70,8 @@ React.useEffect(() => {       window.scrollTo(0, 0);     }, [name||id]);
                 ingredient.className = "col ";
                 ingredient.addEventListener('click', function () {
                     history.push(`/ingredientsByName/${valueimg}`);
-                   
-                   
+
+
                 })
                 ingredient.innerHTML = `
                 <div className="card h-75" >
@@ -82,25 +85,25 @@ React.useEffect(() => {       window.scrollTo(0, 0);     }, [name||id]);
         }
     }, [detail])
 
-//checking if this order exist in database or not?if exist  set state as true otherwise set as false
+    //checking if this order exist in database or not?if exist  set state as true otherwise set as false
     useEffect(() => {
-           let url = `https://sleepy-plains-42535.herokuapp.com/SingleOrderDataShow/${detail.idDrink}/${loggedInUser.email}`;
+        let url = `https://sleepy-plains-42535.herokuapp.com/SingleOrderDataShow/${detail.idDrink}/${loggedInUser.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                if(data==false){
-setValue(false);
+                if (data == false) {
+                    setValue(false);
                 }
-                else{
-                   
+                else {
+
                     setOrderData(data);
                     console.log(orderData)
                     setState(true);
                     setValue(true);
                 }
             })
-    },[detail.idDrink])
-    
+    }, [detail.idDrink])
+
     const handleAddOrderByOrderData = orderData => {
         console.log(orderData);
         const detailsUpdate = {
@@ -114,9 +117,7 @@ setValue(false);
         })
             .then(res => res.json())
             .then(data => {
-                setValue(true); 
-
-               
+                setValue(true);
                 // setOrderUpdate(true); 
                 alert('Order Inserted Successfully');
             })
@@ -157,31 +158,29 @@ setValue(false);
                         .then(data => {
                             setCart(data);
                             setValue(true);
-                    
+
                             // setOrderUpdate(true);
                         })
                 }
-                else{
+                else {
                     setValue(false);
                 }
             })
     }
+    
 
     return (
-        <> 
-            <div className="containerColor" >
-              
+        <>
+            <Header></Header>
+            <div className="containerColor " >
                 <div className=" detaildrinkstyle container ">
-
                     <div className=" row  detaildrinkstyle d-flex">
-                        <div className=" mt-5 col-md-5 col-sm-5 cardHomeDrink card h-100 mx-1">
+                        <div className="mt-5 col-md-5 col-sm-5 cardHomeDrink card h-100 mx-1">
                             <img src={detail?.strDrinkThumb} className="card-img-top h-100 " alt="..."></img>
-
                         </div>
                         <div className="col-md-7 col-sm-7 row row-cols-xs-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 mt-5 " id="ingredientContainer">
                         </div>
                     </div>
-
                     <div className="w-75 m-auto text-center d-flex-column justify-content-center align-items-center">
                         <div className="">
                             <h6 className="card-title mt-5 mb-2 fw-bold">Instructions</h6>
@@ -193,9 +192,7 @@ setValue(false);
                         </div>
                         <div className="">
                             <h6 className="card-title mt-4 mb-2 fw-bold">{detail.strAlcoholic}</h6>
-
                         </div>
-
                         {
                             detail.strVideo &&
                             <div className="">
@@ -207,7 +204,7 @@ setValue(false);
                             <h6 className="ms-1 text-center"> ${detail?.price}</h6>
                             <h1>{state}</h1>
                             {
-                                ((value==false&&orderData)) && <button className="btn btn-primary btn-sm me-1 mt-1 btnCart" onClick={() => handleAddOrder(detail, loggedInUser.email)}>Adding To Cart</button>
+                                ((value == false && orderData)) && <button className="btn btn-primary btn-sm me-1 mt-1 btnCart" onClick={() => handleAddOrder(detail, loggedInUser.email)}>Add To Cart</button>
 
                             }
                             {
@@ -218,11 +215,11 @@ setValue(false);
                     </div>
                 </div>
 
-                <div className="col-md-12 container">
+                <div className="col-md-12 container mb-5">
                     <h5 className="text-center mt-5 text-white p-3" style={{ backgroundColor: '#27211D' }}>Similar Drinks</h5>
                     <div className="row row-cols-1  row-cols-sm-2  row-cols-md-3 row-cols-lg-4  ">
                         {
-                            drinks.map(drink => <DrinkShowById drink={drink} state={false}></DrinkShowById>)
+                            similarDrinks?.map(drink => <DrinkShowById drink={drink} state={false}></DrinkShowById>)
                         }
                     </div>
                 </div>

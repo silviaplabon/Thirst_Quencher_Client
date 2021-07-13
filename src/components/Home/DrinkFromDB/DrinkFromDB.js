@@ -33,7 +33,6 @@ const DrinkFromDB = (props) => {
       .then(res => res.json())
       .then(data => {
         if (data) {
-          
         }
       })
 

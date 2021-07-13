@@ -1,12 +1,35 @@
-
-@media only screen and (min-device-width: 200px) and (max-device-width:550px) {
-    .ReactModal__Content{
-    width:100%!important;
+@media only screen and (min-device-width: 501px) and (max-device-width:767px) {
+    .ReactModal__Content {
+        width: 87%!important;
+    }
+    .pShip {
+        margin: 0!important;
+        font-size: 14px!important;
+        padding: 0px!important;
+    }
 }
 
-.pShip{
-    margin:0!important;
-    font-size:14px!important;
-}
+.serviceTypeShipment {
+    width: 8rem!important;
 }
 
+@media only screen and (min-device-width: 200px) and (max-device-width:500px) {
+    .ReactModal__Content {
+        width: 100%!important;
+    }
+    .serviceTypeShipment {
+        width: 6rem!important;
+        padding: 0px!important;
+    }
+    .fontShipment {
+        font-size: 12px!important;
+    }
+    .pShip {
+        margin: 0!important;
+        font-size: 12px!important;
+        padding: 0px!important;
+    }
+    .typeSelectContainer{
+        padding-right:0px!important;
+    }
+}

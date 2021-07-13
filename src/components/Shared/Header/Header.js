@@ -5,7 +5,7 @@ import Drinks from '../../Home/Drinks/Drinks'
 import { Link as Link1, useHistory } from 'react-router-dom';
 import { CartContext, UserContext, ValueContext } from '../../../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus,faSearch } from '@fortawesome/free-solid-svg-icons'
 import HomeDetailDrink from '../../Home/HomeDrinkDetails/HomeDrinkDetails';
 import { TramRounded } from '@material-ui/icons';
 
@@ -13,8 +13,9 @@ import * as Scroll from 'react-scroll';
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 
+const Header = (props) => {
+    const searchOption=props.searchOption;
 
-const Header = () => {
     const history = useHistory();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [value, setValue] = useContext(ValueContext)
@@ -22,12 +23,15 @@ const Header = () => {
     const [orderLength, setOrderLength] = useState(null)
     const token = localStorage.getItem('token')
     const [state, setState] = useState(false);
+    const [searchData,setSearchData]=useState(null);
 
     const handleChange = event => {
         const name = event.target.value;
+        setSearchData(name);
+    }
+    const handleSearchOption=name=>{
         history.push(`/${name}`)
     }
-    // console.log(orderLength)
     const handleLogOut = () => {
         fetch(' https://sleepy-plains-42535.herokuapp.com/deleteUserCollection?email=' + loggedInUser?.email, {
             method: 'DELETE'
@@ -41,11 +45,7 @@ const Header = () => {
             })
         setLoggedInUser({});
         localStorage.setItem('token', '')
-
     }
-    // console.log(cart.length)
-
-
 
 
     useEffect(() => {
@@ -77,13 +77,15 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div className="navbar-nav" >
-                            <input className="form-control me-3 mt-2" onChange={handleChange} type="search" placeholder="Search" aria-label="Search" />
                             <Link1 to="/" className="nav-link text-white" >Home</Link1>
+                            <Link1 to="/user/AddMessage" className="nav-link text-white" >profile</Link1>
                             <Link activeClass="active" to="filterSectionLink" spy={true} smooth={true} offset={50} duration={500}
                              className="nav-link text-white">Filter</Link>
                             <Link1 to="/auth/setup/admin" className="text-white nav-link" >Admin</Link1>
                             {
-                                (token && cart.length !== 0) && <Link1 to="/user/OrderListShow" className="d-flex justify-content-center align-items-center" style={{ textDecoration: 'none' }}><FontAwesomeIcon className="iconSize text-white " icon={faCartPlus} />
+                                (token && cart.length !== 0) &&
+                                
+                                <Link1 to="/user/OrderListShow" className="d-flex justify-content-center align-items-center" style={{ textDecoration: 'none' }}><FontAwesomeIcon className="iconSize text-white " icon={faCartPlus} />
                                     <span className="ms-1 lengthStyle" > {cart.length}</span></Link1>
                             }
                             {(loggedInUser.email) ? <button onClick={handleLogOut} className="btn  buttonColor   buttonStyleHeader  nav-link fw-bold " style={{ color: 'white' }}>Logout</button> :

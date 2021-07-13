@@ -44,6 +44,8 @@ import AddProducts from './components/Admin/AddProducts/AddProducts'
 import Header from './components/Shared/Header/Header';
 import Footer from './components/Shared/Footer/Footer';
 import Home from './components/Home/Home/Home';
+import UserSidebar from './components/Shared/UserSidebar/UserSidebar';
+import AddMessage from './components/Users/AddMessage/AddMessage';
 
 
 
@@ -75,9 +77,12 @@ function App() {
          {
           (token && loggedInUser.email&&cart)&&<OrderLength></OrderLength>
         }
-        <Header></Header>
+      
         <Switch>
-
+    
+          <Route exact path="/user/AddMessage">
+           <AddMessage></AddMessage>
+          </Route>
           <Route exact path="/">
             <Home></Home>
           </Route>

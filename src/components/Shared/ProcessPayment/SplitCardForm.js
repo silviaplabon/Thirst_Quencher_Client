@@ -9,10 +9,10 @@ import {
 import './SplitCardForm.css'
 
 
-//import useResponsiveFontSize from "../../useResponsiveFontSize";
+// import useResponsiveFontSize from "../../useResponsiveFontSize";
 
 const useOptions = () => {
-//   const fontSize = useResponsiveFontSize();
+  // const fontSize = useResponsiveFontSize();
   const options = useMemo(
     () => ({
       style: {
@@ -71,7 +71,7 @@ const SplitCardForm = ({handlePayment}) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label className="mt-3 ms-1 text-white">
+      <label className="ms-1 text-white labelCard">
         Card number
         <CardNumberElement
           className="form-control cardNumberStyle p-2 "
@@ -91,7 +91,7 @@ const SplitCardForm = ({handlePayment}) => {
         />
       </label>
       <br/>
-      <label className="ms-1 text-white">
+      <label className="ms-1 text-white labelExp">
         Expiration date
         <CardExpiryElement
         className="form-control expStyle"
@@ -111,7 +111,7 @@ const SplitCardForm = ({handlePayment}) => {
         />
       </label>
       
-      <label   className="ms-5 text-white">
+      <label   className="ms-5 text-white labelCVC">
         CVC
         <CardCvcElement
           className="form-control cvcStyle"

@@ -6,7 +6,6 @@ import './AdminShipmentShow.css'
 
 const AdminShipmentShow = (props) => {
     const { order, type, destination, orderTime, status, user, _id } = props.book;
-    console.log(props)
     const index=props.index;
     const { register, handleSubmit, watch, errors } = useForm();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
@@ -20,7 +19,7 @@ const AdminShipmentShow = (props) => {
         };
 
 
-        {
+
             (loggedInUser.admin == true && loggedInUser.role == "Administrator") &&
 
                 fetch(`https://sleepy-plains-42535.herokuapp.com/statusUpdate/AdminShipment/${_id}`, {
@@ -40,7 +39,7 @@ const AdminShipmentShow = (props) => {
                             }
                         }
                     })
-        }
+        
 
     }
     const deleteSingleOrder = _id => {

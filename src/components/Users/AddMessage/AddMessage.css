@@ -2,3 +2,45 @@
     background-image:linear-gradient(-90deg,red,#333);
     color:white;
 }
+
+.addMessageContainer{
+   background-color: #f8c008!important;
+}
+
+@media only screen and (min-device-width: 1400px) and (max-device-width:2300px) {
+    .addMessageContainer{
+     width:60%!important;
+     margin-left:20%!important;
+     margin-right:20%!important;
+    }
+ }
+ @media only screen and (min-device-width: 1200px) and (max-device-width:1399px) {
+    .addMessageContainer{
+     width:65%!important;
+     margin-left:20%!important;
+     margin-right:15%!important;
+    }
+ }
+ @media only screen and (min-device-width: 991px) and (max-device-width:1199px) {
+     .addMessageContainer{
+      width:70%!important;
+      margin-left:15%!important;
+      margin-right:15%!important;
+     }
+  }
+  @media only screen and (min-device-width: 768px) and (max-device-width:991px) {
+     .addMessageContainer{
+      width:70%!important;
+      margin-left:15%!important;
+      margin-right:15%!important;
+     }
+  }
+  @media only screen and (min-device-width: 0px) and (max-device-width:767px) {
+   
+     .addMessageContainer{
+         width:94%!important;
+         margin-left:3%!important;
+         margin-right:3%!important;
+        }
+     
+    }

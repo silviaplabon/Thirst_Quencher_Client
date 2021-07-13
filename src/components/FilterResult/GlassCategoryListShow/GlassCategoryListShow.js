@@ -44,7 +44,6 @@ export default GlassCategoryListShow;
             //     .then(res => res.json())
             //     .then(data => {
 //                     if (data) {
-//                         console.log(data)
 //                         alert('updated') 
 //                     }
 //                 })

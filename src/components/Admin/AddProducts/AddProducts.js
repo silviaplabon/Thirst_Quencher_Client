@@ -39,7 +39,6 @@ const AddProducts = () => {
                 setImageURL(response.data.data.display_url);
             })
             .catch(function (error) {
-                // console.log(error);
             });
     }
 

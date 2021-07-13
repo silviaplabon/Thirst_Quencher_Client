@@ -8,12 +8,12 @@ const BookDetailShow = (props) => {
         <>
             <ul className="list-group ulStyleShipment ">
                 <li className="list-group-item  liStyleShipment">
-                    <span className=" listStyleShipment  nameStyleShipment fw-bold">{strDrink}</span>
-                    <span className="listStyleShipment  quantityStyleShipment fw-bold text-center">{quantity}</span>
-                    <span className="listStyleShipment  priceStyleShipment fw-bold text-center">{price}</span>
-                    <span className="listStyleShipment  typeStyleShipment fw-bold text-center">{props.serviceType}</span>
-                    <span className="listStyleShipment  dateStyleShipment fw-bold text-center">{props.time}</span>
-                    <span className="listStyleShipment  destinationStyleShipment fw-bold text-center">{props.address}</span>
+                    <span className="listStyleShipment  nameStyleShipment  ">{strDrink}</span>
+                    {/* <span className="listStyleShipment  quantityStyleShipment  text-center">{quantity}</span> */}
+                    <span className="listStyleShipment  priceStyleShipment  text-center ms-2">{price}</span>
+                    <span className="listStyleShipment  typeStyleShipment  text-center ms-2">{props.serviceType}</span>
+                    <span className="listStyleShipment  dateStyleShipment  text-center ms-2">{props.time}</span>
+                    <span className="listStyleShipment  destinationStyleShipment  text-center ms-2">{props.address}</span>
                 </li>
             </ul>
 

@@ -8,6 +8,11 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import './DrinkShowByName.css'
 import Admin from '../../Admin/Admin/Admin'
 import ManageProducts from '../../Admin/ManageProducts/ManageProducts';
+import { AnimationWrapper } from 'react-hover-animation'
+import { ParallaxHover } from 'react-parallax-hover';
+import HoverImage from "react-hover-image";
+
+
 
 const DrinkShowByName = (props) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
@@ -48,8 +53,7 @@ const DrinkShowByName = (props) => {
 
 
     const handleDelete = (drinkname,id) => {
-        {loggedInUser.role=="Administrator" ?
-
+        loggedInUser.role=="Administrator" ?
             fetch(` https://sleepy-plains-42535.herokuapp.com/deleteProduct/${drinkname}/${id}`, {
                 method: 'DELETE'
             })
@@ -62,22 +66,29 @@ const DrinkShowByName = (props) => {
                 })
             
             :
-            alert("Admin disable this option for user. ")
-        }  
+            alert("Admin disable this option for user. ")  
     }
+
     const handleUpdate = (drinkname, id) => {
-        {
             loggedInUser.role=="Administrator" ? history.push(`/admin/${drinkname}/${id}`):
             alert("Admin disable this option for user.")
-        }
-       
-
     }
 
     return (
-        <div className="col">
+        <div className="col drinkShowByNameCursor">
+             <AnimationWrapper config={{
+        color: {
+          initial: 'black',
+          onHover: 'red'
+        },
+        opacity:{
+            initial:1,
+            onHover:1
+        },
+       
+      }}>
+    
             <div className="card h-100 cardStyle rounded" onClick={() => handleDetailsDrink(name, state,idDrink)}>
-                
                 <img src={imageURL} className="card-img-top w-100 heightImageDrink" alt="" />
                 <div className="card-body cardBodyStyle h6fontStyle h-25">
                    
@@ -99,6 +110,8 @@ const DrinkShowByName = (props) => {
                     } 
                       </div>
             </div>
+            </AnimationWrapper>
+        
         </div>
 
     );

@@ -8,9 +8,21 @@
 /* https://i.ibb.co/r28mfHC/Cocktail-Background-Image.jpg */
 /* https://i.ibb.co/XtR3G49/slider3-bg-new-2000x.jpg */
 .h2HeaderMainTitle{
-    
         font-family: 'Philosopher', sans-serif;
 }
 .h6HeaderMainFont{
     font-family: 'Bona Nova', serif;
+}
+.searchOption{
+    /* background: rgba(255,255,254,.14)!important; */
+    /* background: #85827d!important; */
+    /* padding:17px!important; */
+    border-radius: 0.60rem;
+    border:2px solid white;
+    color:white;
+}
+.headerMainHalf{
+    transform: skew(
+        -10deg
+        );
 }

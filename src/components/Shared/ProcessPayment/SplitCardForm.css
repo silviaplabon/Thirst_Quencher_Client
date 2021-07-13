@@ -10,3 +10,15 @@
     width:230px!important;
     padding-left:2rem!important;
 }
+
+@media only screen and (min-device-width: 200px) and (max-device-width:500px) {
+.labelCVC{
+    font-size:12px!important;
+}
+.labelExp{
+    font-size:12px!important;
+}
+.labelCard{
+    font-size:12px!important;
+}
+}

@@ -5,6 +5,10 @@ import ReviewCollection from "../Review/ReviewCollection/ReviewCollection";
 
 import "./HomeDrink.css";
 import Footer from "../../Shared/Footer/Footer";
+import "animate.css/animate.min.css";
+import ScrollAnimation from 'react-animate-on-scroll';
+
+
 const Home = () => {
   const [popularDrinks, setPopularDrinks] = useState([]);
   const [popularIngredients, setPopularIngredient] = useState([]);
@@ -51,7 +55,7 @@ const Home = () => {
     let i, len;
     for (i = 0, len = elements.length; i < len; i++) {
       if (i == stateDrinks) {
-        elements[stateDrinks].style.backgroundColor = '#D2AA5C';
+        elements[stateDrinks].style.backgroundColor = '#f89808';
       } else {
         elements[i].style.backgroundColor = 'white';
       }
@@ -63,13 +67,14 @@ const Home = () => {
     let i, len;
     for (i = 0, len = elements.length; i < len; i++) {
       if (i ==stateIngredients) {
-        elements[stateIngredients].style.backgroundColor = '#D2AA5C';
+        elements[stateIngredients].style.backgroundColor = '#f89808';
       }
       else {
          elements[i].style.backgroundColor = 'white';
       }
     }
   }, [stateIngredients]);
+
 
   return (
     <div className="containerColor">
@@ -87,11 +92,10 @@ const Home = () => {
         </div>
       ) : (
         <div className="container pt-5">
-         <h1 className="text-center homeDrinkTitle ">Our Products</h1>
-
+         <h1 className="text-center homeDrinkTitle ">Our Drinks</h1>
           <div className="text-center h6HomeCursor text-center fw-bold mb-3 text-white">
             <button
-              className=" btn homeH6Color  me-1" id="homeH6ColorActive" style={{backgroundColor:'#D2AA5C'}}
+              className=" btn homeH6Color  me-1" id="homeH6ColorActive" style={{backgroundColor:'#f89808'}}
               onClick={() => setStateDrinks(0)}
             >
               Popular Drinks
@@ -103,6 +107,7 @@ const Home = () => {
               Random Drinks
             </button>
           </div >
+         <ScrollAnimation animateIn="zoomIn"  duration={0.80}>
           {stateDrinks == 0 && (
             <>
               {/* <h5 className="text-center bgHomeStyle p-3 fw-bold mb-3 text-white">Popular Drinks</h5> */}
@@ -149,18 +154,21 @@ const Home = () => {
               </div>
             </>
           )}
-          <div className="h6HomeCursor d-flex justify-content-center align-items-center fw-bold mb-5 mt-3 text-white">
-            <button className="ingredientsButton  btn  ms-2 me-1 mt-5" style={{backgroundColor:'#D2AA5C'}}  id="ingredientsButtonActive" onClick={() => setStateIngredients(0)}>
+          </ScrollAnimation>
+
+          <h1 className="text-center homeDrinkTitle mt-5">Our Ingredients</h1>
+          <div className="h6HomeCursor d-flex justify-content-center align-items-center fw-bold mb-2 text-white">
+            <button className="ingredientsButton  btn  ms-2 me-1 mt-1" style={{backgroundColor:'#f89808'}}  id="ingredientsButtonActive" onClick={() => setStateIngredients(0)}>
               Popular Ingredients
             </button>
             <button
-              className="ingredientsButton btn ms-2 me-1 mt-5"
+              className="ingredientsButton btn ms-2 me-1 mt-1"
               onClick={() => setStateIngredients(1)}
             >
               Random Ingredients
             </button>
           </div>
-
+          <ScrollAnimation animateIn="zoomIn"  duration={0.80}>
           {stateIngredients == 0 && (
             <>
               {/* <h5 className="text-center mt-5  bgHomeStyle  p-3 fw-bold mb-3 text-white">Popular Ingredients</h5> */}
@@ -191,6 +199,7 @@ const Home = () => {
               </div>
             </>
           )}
+          </ScrollAnimation>
         </div>
       )}
     </div>

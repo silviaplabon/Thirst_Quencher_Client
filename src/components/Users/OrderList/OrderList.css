@@ -34,4 +34,8 @@
     .formSection{
         padding:0.50rem!important;
     }
+    .imageOrderStyle img{
+        height:3rem!important;
+        border-radius:0.85rem!important;
+    }
 }

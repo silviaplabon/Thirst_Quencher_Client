@@ -6,6 +6,7 @@ import { UserContext } from '../../../App';
 import DrinkShowById from '../../Home/DrinkShowById/DrinkShowById'
 import DrinkShowByName from '../../Home/DrinkShowByName/DrinkShowByName';
 import Footer from '../../Shared/Footer/Footer'
+import Header from '../../Shared/Header/Header';
 import './HomeIngredientDetails.css'
 
 const HomeIngredientDetails = () => {
@@ -22,7 +23,7 @@ const HomeIngredientDetails = () => {
 const [loggedInUser,setLoggedInUser]=useContext(UserContext);
     useEffect(() => {
         let url;
-        let url1 = ` https://sleepy-plains-42535.herokuapp.com//ingredientByName/${nameSmall}`;
+        let url1 = ` https://sleepy-plains-42535.herokuapp.com/ingredientByName/${nameSmall}`;
         let url2 = ` https://sleepy-plains-42535.herokuapp.com/ingredientById/${id}`;
         {
             name ? url = url1 : url = url2
@@ -48,7 +49,7 @@ const [loggedInUser,setLoggedInUser]=useContext(UserContext);
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.ingredients[0])
-                fetch(`https://sleepy-plains-42535.herokuapp.com//filter/ingredientsList`, {
+                fetch(`https://sleepy-plains-42535.herokuapp.com/filter/ingredientsList`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -59,6 +60,7 @@ const [loggedInUser,setLoggedInUser]=useContext(UserContext);
             })
     }
 
+    const sliceDrinks=drinks.slice(0,15);
 
 
 
@@ -69,6 +71,7 @@ const [loggedInUser,setLoggedInUser]=useContext(UserContext);
 
     return (
         <>
+        <Header></Header>
             <div className="container">
                 {spinner ?
                     <div className="text-center  mb-5 pt-5 pb-5">
@@ -109,9 +112,9 @@ const [loggedInUser,setLoggedInUser]=useContext(UserContext);
                             </div>
                         </div>
                         <div className="col-md-12">
-                            <div className="row row-cols-1  row-cols-sm-2  row-cols-md-3 row-cols-lg-5  mt-5">
+                            <div className="row row-cols-1  row-cols-sm-2  row-cols-md-3 row-cols-lg-5  mt-5 mb-5">
                                 {
-                                    drinks.map(drink => <DrinkShowById drink={drink} state={true}></DrinkShowById>)
+                                    sliceDrinks.map(drink => <DrinkShowById drink={drink} state={true}></DrinkShowById>)
                                 }
                             </div>
                         </div>

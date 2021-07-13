@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import DrinkShowById from '../../Home/DrinkShowById/DrinkShowById';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 
 const OptionalAlcoholic = () => {
     const [drinks,setDrinks] = useState([]);
@@ -15,6 +17,7 @@ const OptionalAlcoholic = () => {
     const drinksUpdate=drinks.slice(0,100);
    
     return (
+        <><Header></Header>
         <div className="container">
             <h5 className="text-center mt-4">Browse Optional Alcoholic</h5>
         <div className="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 g-4 mt-3">
@@ -23,6 +26,8 @@ const OptionalAlcoholic = () => {
             }
         </div>
         </div>
+        <Footer></Footer>
+        </>
     );
 };
 

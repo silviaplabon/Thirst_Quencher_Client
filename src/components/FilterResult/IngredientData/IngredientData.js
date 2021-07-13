@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import DrinkShowById from '../../Home/DrinkShowById/DrinkShowById';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 import GlassCategorySearch from '../GlassCategorySearch/GlassCategorySearch';
 
 const IngredientData = () => {
@@ -20,6 +22,7 @@ const IngredientData = () => {
     }, [name])
     // 
     return (
+        <><Header></Header>
                     <div className="container">
                         <h5 className="text-center mt-4">Browse Glass</h5>
                         <h5 className="text-center mt-4">{drinks.length}</h5>
@@ -29,6 +32,8 @@ const IngredientData = () => {
                             }
                         </div>
                     </div> 
+                    <Footer></Footer>
+                    </>
     );
 };
 

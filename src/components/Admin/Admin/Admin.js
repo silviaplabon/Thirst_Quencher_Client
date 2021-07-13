@@ -3,6 +3,7 @@ import AddProducts from '../../Admin/AddProducts/AddProducts'
 import AdminMaker from '../../Admin/AdminMaker/AdminMaker'
 import AdminShipment from '../../Admin/AdminShipment/AdminShipment'
 import ManageProducts from '../../Admin/ManageProducts/ManageProducts'
+import Header from '../../Shared/Header/Header';
 import AllDrinksShowList from '../AllDrinksShowList/AllDrinksShowList';
 
 
@@ -11,6 +12,8 @@ const Admin = () => {
     const [state, setState] = useState(1);
 
     return (
+        <>
+        <Header></Header>
 
         <div className="containerAdmin">
         <div className="container m-auto">
@@ -57,6 +60,7 @@ const Admin = () => {
             </div>
         </div>
         </div>
+        </>
     );
 };
 

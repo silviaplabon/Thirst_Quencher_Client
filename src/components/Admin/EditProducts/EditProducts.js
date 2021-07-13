@@ -2,7 +2,10 @@ import { ContactSupportOutlined } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 import './EditProducts.css'
+
 const axios = require('axios').default;
 
 const EditProducts = () => {
@@ -26,7 +29,6 @@ const EditProducts = () => {
     }
 
     const onSubmit = data => {
-        // console.log(data, "onSUbmit value");
         const productData = {
             name: data.name,
             imageURL: imageURL,
@@ -44,7 +46,6 @@ const EditProducts = () => {
             })
     }
     const handleImageUpload = event => {
-        // console.log(event.target.files[0])
         const imageData = new FormData();
         imageData.set('key', 'b9c8c292069e10110cf7af6edcbd15eb');
         imageData.append('image', event.target.files[0]);
@@ -54,7 +55,7 @@ const EditProducts = () => {
                 setImageURL(response.data.data.display_url);
             })
             .catch(function (error) {
-                console.log(error);
+              
             });
     }
     useEffect(() => {
@@ -66,6 +67,7 @@ const EditProducts = () => {
     }, [drinkname])
 
     return (
+        <><Header></Header>
         <div className="containerColor mt-0">
             <div className="container pt-5 pb-5">
                 <form onSubmit={handleSubmit(onSubmit)} className="bg-light p-5 formStyle">
@@ -107,7 +109,8 @@ const EditProducts = () => {
                 </form>
             </div>
         </div>
-
+<Footer></Footer>
+</>
 
     );
 };

@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 import GlassCategoryListShow from '../GlassCategoryListShow/GlassCategoryListShow';
 
 import './GlassCategorySearch.css'
 const GlassCategorySearch = (props) => {
-    // console.log(props, "glasscategorysearch")
     const state = props.state;
     const history = useHistory();
     const [glasses, setGlasses] = useState([]);
     const [categories, setCategories] = useState([]);
+
+
+
     const handleChangeGlass = event => {
         const name = document.getElementById('nameValue').value;
         history.push(`/filter/glass/${name}`)
@@ -19,12 +23,10 @@ const GlassCategorySearch = (props) => {
     }
 
    
-
-    // console.log(state, "sidkedkecrcrf")
     useEffect(() => {
         {
             state == 3 && 
-        fetch(` https://sleepy-plains-42535.herokuapp.com/filter/glassListShow`)
+        fetch(`https://sleepy-plains-42535.herokuapp.com/filter/glassListShow`)
             .then(res => res.json())
             .then(data => {
                 setGlasses(data)
@@ -32,7 +34,7 @@ const GlassCategorySearch = (props) => {
         }
         {
             state == 4 && 
-            fetch(` https://sleepy-plains-42535.herokuapp.com/filter/categoryListShow`)
+            fetch(`https://sleepy-plains-42535.herokuapp.com/filter/categoryListShow`)
             .then(res => res.json())
             .then(data => {
                 setCategories(data)
@@ -42,6 +44,7 @@ const GlassCategorySearch = (props) => {
 
 
     return (
+        <><Header></Header>
         <div className="containerColorGlassCategory">
             <div className="container ">
                 {(state == 1 || state == 3) &&
@@ -82,6 +85,8 @@ const GlassCategorySearch = (props) => {
 
             </div>
         </div>
+        <Footer></Footer>
+        </>
     );
 };
 

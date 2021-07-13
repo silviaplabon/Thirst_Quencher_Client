@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { DeleteContext, UserContext } from '../../../App';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 import OrderDetailShow from '../OrderDetailShow/OrderDetailShow';
 import ShipmentAndPayment from '../ShipmentAndPayment/ShipmentAndPayment';
 import './OrderList.css';
@@ -45,8 +47,10 @@ const OrderList = () => {
 
 
     return (
-        <div className="container">
-            <div className="col-md-12 formSection m-auto mt-5">
+        <>
+        <Header></Header>
+        <div className="mt-5 mb-5">
+            <div className="col-md-12 formSection m-auto  mt-5" style={{width:'95%'}}>
                 <div className="">
                     <ul className=" list-group ulStyleOrder" >
                         <li className="list-group-item liStyleOrder liHeaderStyleOrder text-white p-2">
@@ -66,6 +70,8 @@ const OrderList = () => {
                 <ShipmentAndPayment modalIsOpen={modalIsOpen} closeModal={closeModal} ></ShipmentAndPayment>
             </div>
         </div>
+        <Footer></Footer>
+        </>
     );
 };
 

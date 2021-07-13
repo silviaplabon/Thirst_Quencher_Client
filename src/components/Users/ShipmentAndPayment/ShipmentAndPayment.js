@@ -7,8 +7,10 @@ import { UserContext } from '../../../App';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCcMastercard, faPaypal, faCcPaypal } from '@fortawesome/free-brands-svg-icons'
+
 import { noAuto } from '@fortawesome/fontawesome-svg-core';
 import './ShipmentAndPayment.css';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const customStyles = {
     content: {
@@ -17,11 +19,11 @@ const customStyles = {
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        paddingTop: '0px',
-        marginTop:'0px',
-        width:'60%',
+        paddingTop: '40px',
+        marginTop: '0px',
+        width: '60%',
         transform: 'translate(-50%, -50%)',
-        backgroundColor:'#27211D'
+        backgroundColor: 'rgba(0, 0, 0, 0.96)'
     }
 };
 
@@ -131,48 +133,56 @@ const ShipmentAndPayment = ({ modalIsOpen, closeModal }) => {
             >
 
                 <div className="row ">
-                    <h5 className="text-center w-100 text-white">Dear {loggedInUser.displayName}</h5>
-                    <h6 className="text-center w-100 text-white">You purchased {service.length} type of drink.</h6>
-                    <h6 className="text-center text-white">Please Confirm Your Payment:</h6>
-
-
-                    <div className=" mb-2 mt-5 w-100 row ">
-                        <div className="col-md-8 col-lg-7 col-xs-12" style={{height:'3rem'}}>
-                            <p className="ms-2 fw-bold pShip text-white">Please Select Service Type:</p><br />
-                        </div>
-                        <div className="col-md-4 col-lg-2 col-xs-12">
-                            <select name="service" className="text-white" style={{ borderColor: '#2d524a' ,width:'7rem'}} onChange={handleServiceRadio}>
-                                <option className="" style={{color:'black'}}>Instant Drink</option>
-                                <option className=""  >Home Delivery</option>
-                            </select>
-                        </div>
+                    <div className="d-flex justify-content-center align-items-center">
+                         <button className="btn btn-primary btnClose" onClick={closeModal}>
+                        <FontAwesomeIcon className="crossIcon text-center" className="" icon={faTimes} />
+                    </button>
                     </div>
+                    <h5 className="text-center w-100 text-white fonth5Shipment">Dear {loggedInUser.displayName}</h5>
+                    <h6 className="text-center w-100 text-white fonth6Shipment">You purchased {service.length} type of drink.</h6>
+                    <h6 className="text-center text-white fonth5Shipment">Please Confirm Your Payment:</h6>
+
+
+                  
+                        <div className="typeSelectContainer  mt-4" style={{ height: '2rem' }}>
+                            <p className=" fw-bold pShip text-white "><span className="me-1 fontTypeShipment">Please Select Service Type:</span>
+                                <select name="service" className="serviceTypeShipment" style={{ borderColor: '#2d524a' }} onChange={handleServiceRadio}>
+                                    <option className="" style={{ color: 'black' }}>Instant Drink</option>
+                                    <option className="" style={{ color: 'black' }} >Home Delivery</option>
+                                </select>
+                            </p><br />
+                        </div>
+
+                   
                     {serviceType == "Instant Drink" &&
                         <>
-                            <h6 className="text-white ms-2">Service Charge: $3</h6>
-                            <h6 className="text-white ms-2">Your Total: {total + 3}</h6>
+                            <h6 className="text-white fontShipment">Service Charge: $3</h6>
+                            <h6 className="text-white  fontShipment mb-0">Your Total: {total + 3}</h6>
                         </>}
                     {serviceType == "Home Delivery" &&
                         <>
-                            <h6 className="text-white">Home Delivery: $10</h6>
-                            <h6 className="text-white" >Your Total: {total + 10}</h6>
+                            <h6 className="text-white  fontShipment">Home Delivery: $10</h6>
+                            <h6 className="text-white  fontShipment" >Your Total: {total + 10}</h6>
                             <div className="d-flex">
-                                <h6 className="mt-1 me-3 text-white">Address:</h6>
+                                <h6 className="mt-1 me-3 text-white  fontShipment">Address:</h6>
                                 <input type="text" onBlur={handleAddress} id="address" className="form-control w-75" name="address" placeholder="Address" />
-
                             </div>
                         </>}
-                    <div className="col-md-7  col-sm-12 ms-2 bookSection ">
-                        <div className="col-md-8 col-sm-12">
-                            <p className="me-2 fw-bold text-white">Pay With: </p>
+                    <div className="col-md-12  col-sm-12  bookSection ">
+                        <div className="d-flex justify-content-start align-items-center ">
+                            <p className="me-2 fw-bold text-white fontShipment mt-1 mb-0">Pay With: </p>
                             <input type="radio" onChange={handleRadio} className="ms-1 text-white" id="male" name="gender" defaultChecked={true} value="Credit Card" />
-                            <label for="Credit Card" className="text-white"><FontAwesomeIcon className="iconSize  text-white ms-1" icon={faCcMastercard} style={{ color: '#DF3512' }} />Credit Card</label>
+                            <label for="Credit Card" className="text-white"><FontAwesomeIcon className="iconSize  text-white " icon={faCcMastercard} style={{ color: '#DF3512' }} /><span className="fontShipment">
+                                Credit Card</span></label>
 
-                            <input type="radio" onChange={handleRadio} className="ms-1" id="Paypal" name="gender" value="Paypal" />
-                            <label for="Paypal" className="text-white"><FontAwesomeIcon className="iconSize ms-1" icon={faCcPaypal} style={{ color: '#253b80' }} />Paypal</label>
-
-                            <ProcessPayment handlePayment={handlePaymentSuccess} ></ProcessPayment>
+                            <input type="radio" onChange={handleRadio} className="" id="Paypal" name="gender" value="Paypal" />
+                            <label for="Paypal" className="text-white"><FontAwesomeIcon className="iconSize  fontShipment" 
+                            icon={faCcPaypal} style={{ color: '#253b80' }} />
+                            <span className="fontShipment">Paypal</span></label>
                         </div>
+
+
+                        <ProcessPayment handlePayment={handlePaymentSuccess} ></ProcessPayment>
                     </div>
                 </div>
             </Modal>

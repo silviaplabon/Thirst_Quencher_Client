@@ -14,15 +14,15 @@
 .nameStyleShipment{
     grid-column: 1 / span 2!important;
 }
-.quantityStyleShipment{
+/* .quantityStyleShipment{
     grid-column: 3/ span 1!important;
-}
+} */
 .priceStyleShipment{
-    grid-column: 4/ span 1!important;
+    grid-column: 3/ span 1!important;
 }
 
 .typeStyleShipment{
-    grid-column: 5/ span 1!important;
+    grid-column: 4/ span 2!important;
 }
 .dateStyleShipment{
     grid-column: 6/ span 2!important;
@@ -31,10 +31,11 @@
 .destinationStyleShipment{
     grid-column: 8/ span 5!important;
 }
-@media only screen and (min-device-width: 200px) and (max-device-width:500px) {
+@media only screen and (min-device-width: 200px) and (max-device-width:767px) {
     .listStyleShipment{
-        font-size:12px!important;
-        margin-left:4px!important;
+        font-size:10px!important;
+        font-weight: normal!important;
+        margin-left:2px!important;
     }
     .formSection{
         padding:0.50rem!important;

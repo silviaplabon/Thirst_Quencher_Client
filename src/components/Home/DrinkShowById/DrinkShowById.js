@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { UserContext, ValueContext } from '../../../App';
 import OrderIsExist from '../../Shared/OrderIsExist/OrderIsExist';
+import { AnimationWrapper } from 'react-hover-animation'
+
 
 const DrinkShowById = (props) => {
     let history = useHistory();
@@ -17,7 +19,7 @@ const DrinkShowById = (props) => {
     const [drinkExist, setDrinkExist] = useState(false);
     
     useEffect(() => {
-        fetch(`https://sleepy-plains-42535.herokuapp.com//drinkIsExist/${idDrink}/${strDrink}`)
+        fetch(`https://sleepy-plains-42535.herokuapp.com/drinkIsExist/${idDrink}/${strDrink}`)
             .then(res => res.json())
             .then(data => {
                 if (data != false) {
@@ -31,7 +33,7 @@ const DrinkShowById = (props) => {
 
         //
         const saveToDatabase=(drinkdata)=>{
-            fetch(`https://sleepy-plains-42535.herokuapp.com//addDrinksCollection`, {
+            fetch(`https://sleepy-plains-42535.herokuapp.com/addDrinksCollection`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -69,7 +71,17 @@ const DrinkShowById = (props) => {
 
         return (
             //
-            <>
+            <><AnimationWrapper config={{
+                color: {
+                  initial: 'black',
+                  onHover: 'red'
+                },
+                opacity:{
+                    initial:1,
+                    onHover:1
+                },
+               
+              }}>
                 <div className="col mt-3 "  onClick={() => handleDetailsId(_id, idDrink)}> <OrderIsExist idDrink={idDrink} />
                     <div className="card h-100 cardStyle" >
                         <img src={strDrinkThumb} className="card-img-top" alt="..." />
@@ -80,7 +92,7 @@ const DrinkShowById = (props) => {
                             <h6 className="card-title text-center p-2">{strDrink}</h6>
                         </div>
                     </div>
-                </div>
+                </div></AnimationWrapper>
             </>
         )
     }

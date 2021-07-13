@@ -23,11 +23,9 @@ const AdminShipment = () => {
                 }
             })
     }, [loggedInUser])
-    // console.log(order)
-
 
     return (
-        <div className="container adminShipmentContainer p-0 margin-auto" style={{width:'96%'}}>
+        <div className="container mt-4 adminShipmentContainer p-0 margin-auto" style={{width:'96%'}}>
             <ul className=" list-group ulShipment" >
                 <li className=" list-group-item liShipment  liHeaderShipment text-white p-2">
                 <span className="listAdminShipment ms-2 imageShipment">Image</span>

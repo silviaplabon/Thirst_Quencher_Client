@@ -5,6 +5,18 @@
 .liStyleShipment{
     display:grid;
     grid-template-columns:repeat(12,1fr);
+  
+}
+@media only screen and (min-device-width: 0px) and (max-device-width:767px) {
+  .liStyleShipment{
+        padding:0px!important;
+        font-weight: normal!important;
+  }
+  .shipmentContainerDiv{
+      padding:0px!important;
+  }
+
+
 }
 
 
@@ -14,15 +26,15 @@
 .nameStyleShipment{
     grid-column: 1 / span 2!important;
 }
-.quantityStyleShipment{
+/* .quantityStyleShipment{
     grid-column: 3/ span 1!important;
-}
+} */
 .priceStyleShipment{
-    grid-column: 4/ span 1!important;
+    grid-column: 3/ span 1!important;
 }
 
 .typeStyleShipment{
-    grid-column: 5/ span 1!important;
+    grid-column: 4/ span 2!important;
 }
 .dateStyleShipment{
     grid-column: 6/ span 2!important;
@@ -31,7 +43,7 @@
 .destinationStyleShipment{
     grid-column: 8/ span 5!important;
 }
-@media only screen and (min-device-width: 200px) and (max-device-width:500px) {
+@media only screen and (min-device-width: 200px) and (max-device-width:767px) {
     .listStyleShipment{
         font-size:12px!important;
         margin-left:4px!important;
@@ -40,3 +52,37 @@
         padding:0.50rem!important;
     }
 }
+
+
+@media only screen and (min-device-width: 1200px) and (max-device-width:2300px) {
+   .shipmentContainerDesign{
+    width:87%!important;
+    margin-left:11%!important;
+    margin-right:2%!important;
+   }
+}
+@media only screen and (min-device-width: 992px) and (max-device-width:1199px) {
+    .shipmentContainerDesign{
+     width:80%!important;
+     margin-left:18%!important;
+     margin-right:2%!important;
+    }
+ }
+ @media only screen and (min-device-width: 768px) and (max-device-width:991px) {
+    .shipmentContainerDesign{
+     width:85%!important;
+     margin-left:10%!important;
+     margin-right:5%!important;
+    }
+ }
+ @media only screen and (min-device-width: 0px) and (max-device-width:767px) {
+    .shipmentContainerDiv{
+        margin:30px 2%;
+    }
+    .shipmentContainerDesign{
+        width:94%!important;
+        margin-left:3%!important;
+        margin-right:3%!important;
+       }
+    
+ }
