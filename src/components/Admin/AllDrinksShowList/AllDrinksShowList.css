@@ -60,3 +60,9 @@
     
   }
   
+@media only screen and (min-device-width: 200px) and (max-device-width:500px) {
+  .paginationBttns a{
+    margin:2px!important;
+    padding:2px!important;
+  }
+}

@@ -56,7 +56,7 @@ const CategoryData = () => {
           
                         <div className="mt-5 d-flex justify-content-center align-items-center">
                             <ReactPaginate
-                                previousLabel={"Previous"}
+                                previousLabel={"Prev"}
                                 nextLabel={"Next"}
                                 pageCount={pageCount}
                                 onPageChange={changePage}
