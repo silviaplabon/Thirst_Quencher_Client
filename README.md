@@ -1,13 +1,12 @@
-#Sip & Savor
-This Website developed by React,React-Router,React-hooks,HTML,CSS,Bootstrap
+#Thirst Quencher
+This Website developed by React,React-Router, React-pagination, React-hooks, HTML, CSS, Bootstrap
 
-Github Repository Client Site: [Sip & Savor](https://github.com/silviaplabon/Cocktail_collection_client).
+Github Repository Client Site: [Thirst Quencher](https://github.com/silviaplabon/Thirst_Quencher_Client).
 
-Github Repository Server Site: [Sip & Savor](https://github.com/silviaplabon/Cocktail_db_server ).
+Github Repository Server Site: [Thirst Quencher](https://github.com/silviaplabon/Thirst_Quencher_Server).
 
-Live link Client: [Sip & Savor](https://cocktail-collection.web.app/).
+Live link Client: [Thirst Quencher](https://thirst-quencher.web.app/).
 
-Live link Server: [Sip & Savor](https://sleepy-plains-42535.herokuapp.com/).
 
 
 ## Available Features
@@ -24,13 +23,19 @@ Live link Server: [Sip & Savor](https://sleepy-plains-42535.herokuapp.com/).
 
 6. User can add a product at the cart.
 
-7.Stripe used as payment process.
+7. Stripe used as payment process.
 
 8. Firebase Authentication
 
 9. Sign in and Sign up using Google and Facebook and Github
 
-10.User can search a product from database.
+10. User can search a product from database.
+
+11. For user greater experience using Filter.
+
+12. User  can add a review.
+
+
 
 
 
